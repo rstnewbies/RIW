@@ -21,15 +21,24 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'username',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
-            // 'email:email',
+            //'auth_key',
+            //'password_hash',
+            //'password_reset_token',
+            'email:email',
             // 'status',
             // 'created_at',
             // 'updated_at',
+            [
+    'attribute' => 'group',
+    'enableSorting'=>false,
+    'format' => 'raw',
+    'header' => 'Group',
+    'value' => function($data) {
+     return $data->group->name;
+    }
+        ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

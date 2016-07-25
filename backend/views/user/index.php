@@ -20,9 +20,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             //'id',
-            'username',
+            'name',
+            'last_name',
+            ['attribute' => 'username','header' => 'Login',],
             //'auth_key',
             //'password_hash',
             //'password_reset_token',
@@ -32,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'updated_at',
             [
     'attribute' => 'group',
-    'enableSorting'=>false,
+    'enableSorting'=>true,
     'format' => 'raw',
     'header' => 'Group',
     'value' => function($data) {

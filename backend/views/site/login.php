@@ -30,6 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
             <?php ActiveForm::end(); ?>
+            <?= $form->errorSummary($model); ?>
         </div>
     </div>
 </div>

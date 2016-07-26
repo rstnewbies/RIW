@@ -24,8 +24,3 @@ $this->title = 'My Yii Application';
 
     </div>
 </div>
-<?php 
-function clickUsers(){
-    echo Html::a("Users", ["user/index"]);
-}
-?>

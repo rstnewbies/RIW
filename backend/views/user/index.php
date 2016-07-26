@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
@@ -23,23 +22,25 @@ $this->params['breadcrumbs'][] = $this->title;
             //'id',
             'name',
             'last_name',
-            ['attribute' => 'username','header' => 'Login',],
+            //'username',
             //'auth_key',
             //'password_hash',
             //'password_reset_token',
-            'email:email',
+            ['attribute' => 'email','header' => 'Email(login)','format' => 'email',],
+            ['header' => 'Password',
+             'value' => function($data) {return $data->getPassword();}],
             // 'status',
             // 'created_at',
             // 'updated_at',
             [
-    'attribute' => 'group',
-    'enableSorting'=>true,
-    'format' => 'raw',
-    'header' => 'Group',
-    'value' => function($data) {
-     return $data->group->name;
-    }
-        ],
+            'attribute' => 'group',
+            'enableSorting'=>true,
+            'format' => 'raw',
+            'header' => 'Group',
+            'value' => function($data) {
+            return $data->group->name;
+            }
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

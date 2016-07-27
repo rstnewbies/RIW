@@ -63,7 +63,7 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
-        $model = new \common\models\SignupForm();
+        $model = new \backend\models\SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 return $this->redirect(['view', 'id' => $user->id]);

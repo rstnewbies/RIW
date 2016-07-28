@@ -25,7 +25,8 @@ class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
-
+    const STATUS_ADMIN = 5;
+    
     /**
      * @inheritdoc
      */
@@ -50,7 +51,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['name', 'last_name'],'string'],
+            [['name', 'last_name','username','email'],'string'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::className(), 'targetAttribute' => ['group_id' => 'id']],

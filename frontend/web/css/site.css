@@ -190,3 +190,43 @@ a.desc:after {
     color:#178ab4;
 }
 
+.time-arena{
+  position: relative;
+  background: #ffffff;
+  border-top: 5px solid #ff6b6b;
+  border-bottom: 5px solid #ff6b6b;
+  color:#fe4a49;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  font-size: 13vw;
+}
+
+.qr-btn{
+  position: relative;
+  background: #ffffff;
+  border-bottom: 5px solid #8ac926;
+  border-left: 5px solid #8ac926;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+}
+
+.obrazek-btn{
+  position: relative;
+  background: #ffffff;
+  border-bottom: 5px solid #b0228c;
+  border-top: 5px solid #b0228c;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+}
+.kafelek{
+  margin-bottom: 5vmax;
+}
+
+.profil-btn{
+  position: relative;
+  background: #ffffff;
+  border-top: 5px solid #f34213;
+  border-right: 5px solid #f34213;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+}

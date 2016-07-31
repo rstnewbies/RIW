@@ -7,33 +7,35 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'RSTKompas';
 ?>
 <div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="jumbotron">
+    <h1>Kompas</h1>
 
-    <p>Please fill out the following fields to login:</p>
+    <!--<p>(OPIS)Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore magna aliqua.(OPIS) </p>-->
+    </div>
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6 bot-margin">
+        <div class="module form-module login-form">
+          
+            <h3 class="login-text">Start your adventure here! </h3>
+            
+            <?php $form = ActiveForm::begin(['id' => 'login-form','class'=>'form-height']); ?>
+                      
+                <?= $form->field($model, 'username')->textInput(['class'=>'','placeholder'=>'Email'])->label("") ?>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <div style="color:#999;margin:1em 0">
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-                </div>
-
+                <?= $form->field($model, 'password')->textInput(['class'=>'','placeholder'=>'Password','type'=>'password'])->label("") ?>
+            
                 <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                    <button name="login-button">LOGIN</button>
                 </div>
-
+        </div>
             <?php ActiveForm::end(); ?>
+                <div class="text-center col-lg-12">
+                   <?= Html::a('I forgot password', ['site/request-password-reset']) ?>
+                </div>
+        </div>
         </div>
     </div>
-</div>

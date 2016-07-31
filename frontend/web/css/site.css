@@ -1,6 +1,11 @@
 html,
 body {
     height: 100%;
+    background: #e9e9e9;
+    color: #666666;
+    font-family: 'RobotoDraft', 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .wrap {
@@ -109,3 +114,79 @@ a.desc:after {
 .nav > li > form > button:hover {
     text-decoration: none;
 }
+
+.login-label{
+    font-size: 20px;
+}
+
+.btn-login{
+    margin-top: 30px;
+}
+
+.login-textInput{
+    color:red;
+}
+
+.form-height{
+    height: 100%;
+}
+/* Form Module */
+.form-module {
+  position: relative;
+  background: #ffffff;
+  max-width: 320px;
+  width: 100%;
+  border-top: 5px solid #33b5e5;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+
+
+.login-form{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+
+.form-module input {
+  outline: none;
+  display: block;
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  margin: 0 0 20px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-wieght: 400;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  color: #333333;
+}
+
+.form-module input:focus {
+  border: 1px solid #33b5e5;
+  color: #333333;
+}
+
+.form-module button {
+  cursor: pointer;
+  background: #33b5e5;
+  width: 100%;
+  border: 0;
+  padding: 10px 15px;
+  color: #ffffff;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.form-module button:hover {
+  background: #178ab4;
+}
+
+.bot-margin{
+    margin-bottom: 50px;
+}
+
+.login-text{
+    color:#178ab4;
+}
+

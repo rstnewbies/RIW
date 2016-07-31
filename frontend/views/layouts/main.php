@@ -28,28 +28,20 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'RST Software Masters',
+        'brandLabel' => 'RST Kompas',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
 
-    if(Yii::$app->user->isGuest){
-        $index = "/site/index";
-    }else{
-        $index = "/site/index";
-    }
-
     $menuItems = [
-        ['label' => 'Home', 'url' => [$index]],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
+        ['label' => 'Home', 'url' => Yii::$app->homeUrl],
     ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
+    if (!Yii::$app->user->isGuest) {
+         $menuItems = [
+        ['label' => 'Home', 'url' => Yii::$app->homeUrl],
+    ];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
             . Html::submitButton(

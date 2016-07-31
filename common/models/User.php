@@ -25,8 +25,8 @@ class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
-
-
+    const STATUS_ADMIN = 5;
+    
     /**
      * @inheritdoc
      */
@@ -51,8 +51,11 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
+            [['name', 'last_name','username','email'],'string'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::className(), 'targetAttribute' => ['group_id' => 'id']],
+            ['group_id','integer'], 
         ];
     }
 
@@ -162,6 +165,10 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_hash = Yii::$app->security->generatePasswordHash($password);
     }
+    
+    public static function getPassword(){
+        return 'pass';
+    }
 
     /**
      * Generates "remember me" authentication key
@@ -186,4 +193,14 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getGroup()
+    {
+        return $this->hasOne(Group::className(), ['id' => 'group_id']);
+    }
+
+
 }

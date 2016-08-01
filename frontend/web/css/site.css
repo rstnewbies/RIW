@@ -193,9 +193,9 @@ a.desc:after {
 .time-arena{
   position: relative;
   background: #ffffff;
-  border-top: 5px solid #ff6b6b;
-  border-bottom: 5px solid #ff6b6b;
-  color:#fe4a49;
+  border-top: 5px solid #ea526f;
+  border-bottom: 5px solid #ea526f;
+  color:#ff495c;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
   font-size: 13vw;
@@ -204,10 +204,12 @@ a.desc:after {
 .qr-btn{
   position: relative;
   background: #ffffff;
-  border-bottom: 5px solid #8ac926;
-  border-left: 5px solid #8ac926;
+  border-top: 5px solid #03ad4a;
+  border-bottom: 5px solid #03ad4a;
+  color:#01632a;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
+  font-size: 8vw;
 }
 
 .obrazek-btn{
@@ -219,14 +221,103 @@ a.desc:after {
   margin: 0 auto;
 }
 .kafelek{
-  margin-bottom: 5vmax;
+  margin-bottom: 5vh;
 }
 
 .profil-btn{
   position: relative;
   background: #ffffff;
   border-top: 5px solid #f34213;
-  border-right: 5px solid #f34213;
+  border-bottom: 5px solid #f34213;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
+}
+
+/*Info style*/
+.info-title{
+    background: #ffffff;
+    border-radius: 30px 30px 0 0 ;
+    border:0px;
+    border-bottom: 10px;
+    border-style: solid;
+    border-color: #e84855;
+    font-size: 12vw;
+    margin-bottom: 5vh;
+}
+
+.info-1{
+    border: 0;
+    background: #ffffff;
+    border-bottom: 10px;
+    border-top: 10px;
+    border-style: solid;
+    border-top-color: #e84855;
+    border-bottom-color: #59c9a5;
+    margin-bottom: 5vh;
+}
+
+.info-1-t{
+    font-size: 7vw;
+    margin-top:2vh;
+}
+
+.info-1-d{
+    font-size: 5vw;
+}
+
+.info-2{
+    border: 0;
+    background: #ffffff;
+    border-bottom: 10px;
+    border-top: 10px;
+    border-style: solid;
+    border-top-color: #59c9a5;
+    border-bottom-color: #ff8360;
+    margin-bottom: 5vh;
+}
+
+.info-2-t{
+    font-size: 7vw;
+    margin-top: 2vh;
+}
+
+.info-2-d{
+    font-size: 5vw;
+}
+
+.info-color{
+   margin: 30px;
+   background:#00fff5;
+   border-radius:20px;
+   color: black;
+}
+
+.info-3{
+    border: 0;
+    background: #ffffff;
+    border-bottom: 10px;
+    border-top: 10px;
+    border-style: solid;
+    border-top-color: #ff8360;
+    border-bottom-color: #8a4f7d;
+    margin-bottom: 5vh;
+}
+
+.info-3-t{
+    font-size: 7vw;
+    margin-top: 2vh;
+}
+
+.info-3-d{
+    font-size: 5vw;
+}
+
+.info-end{
+    border: 0;
+    background: #ffffff;
+    border-top: 10px;
+    border-style: solid;
+    border-top-color: #8a4f7d;
+    border-radius: 0 0 30px 30px;
+    font-size: 10vw;
 }

@@ -11,7 +11,7 @@ $this->title = 'RSTKompas';
 ?>
 <div class="site-login">
     <div class="jumbotron">
-    <h1>Kompas</h1>
+        <img src="kompas_logo.png" class="img-responsive center-block"/>
 
     <!--<p>(OPIS)Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore magna aliqua.(OPIS) </p>-->
@@ -20,7 +20,7 @@ $this->title = 'RSTKompas';
     <div class="col-lg-6 bot-margin">
         <div class="module form-module login-form">
           
-            <h3 class="login-text">Start your adventure here! </h3>
+            <h3 class="login-text text-center">Start your adventure here!</h3>
             
             <?php $form = ActiveForm::begin(['id' => 'login-form','class'=>'form-height']); ?>
                       

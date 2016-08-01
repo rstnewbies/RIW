@@ -38,9 +38,11 @@ AppAsset::register($this);
     $menuItems = [
         ['label' => 'Home', 'url' => Yii::$app->homeUrl],
     ];
+    
     if (!Yii::$app->user->isGuest) {
          $menuItems = [
-        ['label' => 'Home', 'url' => Yii::$app->homeUrl],
+            ['label' => 'Home', 'url' => Yii::$app->homeUrl],
+            ['label' => 'Info', 'url' => ['site/info']]
     ];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')

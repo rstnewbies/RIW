@@ -9,7 +9,13 @@ $this->title = 'My Yii Application';
     
     <div class="jumbotron">
         <div class="col-lg-12 text-center kafelek time-arena ">
-            <t>47:23:32</t>
+          <?php echo \russ666\widgets\Countdown::widget([
+    'datetime' => \common\models\Time::getEndTime(),
+    'format' => '%H:%M:%S',
+    'events' => [
+        'finish' => 'function(){location.reload()}',
+    ],
+])?>
         </div>
         <div class="col-lg-12 text-center kafelek qr-btn">
             <t>QR</t>

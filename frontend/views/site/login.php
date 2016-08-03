@@ -6,6 +6,7 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use common\widgets\QrReader;
 
 $this->title = 'RSTKompas';
 ?>
@@ -24,7 +25,7 @@ $this->title = 'RSTKompas';
                    
             <?php $form = ActiveForm::begin(['id' => 'login-form','class'=>'form-height']); ?>
            
-                <?= odaialali\qrcodereader\QrReader::widget([
+                <?= QrReader::widget([
     'successCallback' => "function(data){alert(data)}"
 ]);
 ?>

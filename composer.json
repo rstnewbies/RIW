@@ -40,4 +40,9 @@
     "scripts": {
         "post-install-cmd": "php init --env=Development --overwrite=n"
     }
+    "scripts": {
+        "post-install-cmd": [
+            "sh post-install-cmd.sh"
+        ]
+    }
 }

@@ -40,10 +40,7 @@ class QrReader extends \yii\base\Widget
             'style' => "width:$this->readerWidth;height:$this->readerHeight;"
         ]);
         $this->options['id'] = $this->id;
-        
-//        return Html::tag('div', $reader, [
-//            'class' => 'qrcode-reader-container'
-//        ]);
+        echo Html::button('Start scan', $this->name, '', $this->options);
     }
     
     protected function registerJsOptions(){

@@ -25,7 +25,6 @@ $this->title = 'RSTKompas';
             <?php $form = ActiveForm::begin(['id' => 'login-form','class'=>'form-height']); ?>
            
                 <?= odaialali\qrcodereader\QrReader::widget([
-    'id' => 'qrText',
     'successCallback' => "function(data){alert(data)}"
 ]);
 ?>

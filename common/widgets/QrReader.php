@@ -40,7 +40,8 @@ class QrReader extends \yii\base\Widget
             'style' => "width:$this->readerWidth;height:$this->readerHeight;"
         ]);
         $this->options['id'] = $this->id;
-        echo Html::button('Start scan', $this->name, '', $this->options);
+        $this->options['name'] =  $this->name;
+        echo Html::button('Start scan',$this->options);
     }
     
     protected function registerJsOptions(){

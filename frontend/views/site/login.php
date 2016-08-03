@@ -26,10 +26,10 @@ $this->title = 'RSTKompas';
             <?php $form = ActiveForm::begin(['id' => 'login-form','class'=>'form-height']); ?>
            
                 <?= QrReader::widget([
-    'successCallback' => "function(data){alert(data)}"
-]);
-?>
-            
+                        'successCallback' => "function(data){alert(data)}"
+                        ])?>
+              
+                 
                 <?= $form->field($model, 'username')->textInput(['class'=>'','placeholder'=>'Email'])->label("") ?>
 
                 <?= $form->field($model, 'password')->textInput(['class'=>'','placeholder'=>'Password','type'=>'password'])->label("") ?>

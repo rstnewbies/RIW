@@ -25,11 +25,7 @@ $this->title = 'RSTKompas';
                    
             <?php $form = ActiveForm::begin(['id' => 'login-form','class'=>'form-height']); ?>
            
-                <?= QrReader::widget([
-                        'id'=>'qr',
-                        'successCallback' => "function(data){alert(data)}"
-                        ])?>
-              
+              <?php echo Html::a("QR", ["site/qr"],['class'=>'btn btn-lg btn-warning dashboard-btn']); ?>  
             
                 <?= $form->field($model, 'username')->textInput(['class'=>'','placeholder'=>'Email'])->label("") ?>
 

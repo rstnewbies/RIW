@@ -18,7 +18,7 @@ $this->title = 'My Yii Application';
 ])?>
         </div>
         <div class="col-lg-12 text-center kafelek qr-btn">
-            <t>QR</t>
+             <?php echo Html::a("QR", ["site/qr"],['class'=>'btn btn-lg btn-warning dashboard-btn']); ?>  
         </div>
     </div>
     

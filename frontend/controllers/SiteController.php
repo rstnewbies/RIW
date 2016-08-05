@@ -222,7 +222,12 @@ class SiteController extends Controller
         ]);
     }
     
-        public function actionInfo(){
+    public function actionInfo(){
         return $this->render('info');
+    }
+
+           
+     public function actionQr(){
+        return $this->render('qr');
     }
 }

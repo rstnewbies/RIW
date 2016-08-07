@@ -13,8 +13,6 @@ $this->title = 'My Yii Application';
             <t>47:23:32</t>
         </div>
         <div class="col-lg-12 text-center kafelek qr-btn">
-           QR
+           <?= Task::getTask(1) ?>
         </div>
     </div>
-    
-   

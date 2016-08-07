@@ -13,6 +13,8 @@ use Yii;
  */
 class Task extends \yii\db\ActiveRecord
 {
+    
+    
     /**
      * @inheritdoc
      */
@@ -47,7 +49,7 @@ class Task extends \yii\db\ActiveRecord
         ];
     }
     
-    public function getTask($id){
+    public static function getTask($id){
           return static::findOne('id' == $id);
     }
     

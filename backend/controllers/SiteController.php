@@ -95,8 +95,5 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
-    
-    public function actionUsers(){
-        return $this->render('user/index');
-    }
+   
 }

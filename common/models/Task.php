@@ -27,9 +27,10 @@ class Task extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'text'], 'required'],
+            [['title', 'text', 'score'], 'required'],
             [['text'], 'string'],
             [['title'], 'string', 'max' => 255],
+            [['score'], 'integer'],
         ];
     }
 
@@ -42,11 +43,12 @@ class Task extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Title',
             'text' => 'Text',
+            'score' => 'Score',
         ];
     }
     
     public function getTask($id){
-          return static::findAll('id' == $id)->text;
+          return static::findOne('id' == $id);
     }
     
     public static function getTitle(){

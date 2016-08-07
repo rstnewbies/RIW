@@ -16,6 +16,7 @@ class m160806_180037_task extends Migration
             'id' => $this->primaryKey(),
             'title' => $this->string()->notNull(),
             'text' => $this->text()->notNull(),
+            'score' => $this->integer(),
         ], $tableOptions);   
     }
 

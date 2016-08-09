@@ -166,8 +166,8 @@ class User extends ActiveRecord implements IdentityInterface
         $this->password_hash = Yii::$app->security->generatePasswordHash($password);
     }
     
-    public static function getPassword(){
-        return 'pass';
+    public function getPassword(){
+        return $this->username;
     }
 
     /**
@@ -201,6 +201,9 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->hasOne(Group::className(), ['id' => 'group_id']);
     }
-
-
+  
+    public function getGroupUser()
+    {
+        return $this->hasMany(User::className(),['group_id'=>'group_id']);
+    }
 }

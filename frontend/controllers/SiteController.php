@@ -83,6 +83,7 @@ class SiteController extends Controller
         }
         }else{
             return $this->render('index');
+
         }
     }
 

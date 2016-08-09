@@ -202,6 +202,9 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->hasOne(Group::className(), ['id' => 'group_id']);
     }
   
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getGroupUser()
     {
         return $this->hasMany(User::className(),['group_id'=>'group_id']);

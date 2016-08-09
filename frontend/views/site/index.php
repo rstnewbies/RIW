@@ -4,8 +4,6 @@
 use yii\helpers\Html;
 use yii\bootstrap\Modal;
 use common\models\User;
-use yii\grid\GridView;
-
 
 $this->title = 'My Yii Application';
 ?>
@@ -30,7 +28,7 @@ $this->title = 'My Yii Application';
         $groupUser = User::find()->with('groupUser')->asArray()->all();
         
         echo "<div id='modalContent'></div>";
-        echo Html::a(var_dump($groupUser[1]), ["user/index"],['class'=>'btn btn-lg btn-warning dashboard-btn']);
+        echo Html::button($groupUser);
                 
         Modal::end();
     ?>

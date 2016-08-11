@@ -31,7 +31,7 @@ $this->title = 'My Yii Application';
         echo "<div id='modalContent'></div>";
         foreach ($groupUsers as $user){
             
-        echo Html::a($user->name." ".$user->last_name, ['leader', 'id' => $user->id], ['class' => 'btn btn-success']);        
+        echo Html::a($user->name." ".$user->last_name, ['leader', 'id' => $user->id], ['class' => 'btn btn-success leader-btn center-block']);        
         echo '<br>';
         }      
         Modal::end(); 

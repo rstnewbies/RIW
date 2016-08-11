@@ -321,3 +321,7 @@ a.desc:after {
     border-radius: 0 0 30px 30px;
     font-size: 10vw;
 }
+
+.leader-btn{
+    margin-bottom: 2px;
+}

@@ -34,7 +34,6 @@ $this->title = 'My Yii Application';
         echo Html::a($user->name." ".$user->last_name, ['leader', 'id' => $user->id], ['class' => 'btn btn-success']);        
         echo '<br>';
         }      
-        echo $loggedUser->getLeader()->name;
         Modal::end(); 
     }
         ?>

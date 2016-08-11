@@ -211,6 +211,6 @@ class User extends ActiveRecord implements IdentityInterface
     }
     
     public function getLeader(){
-        return $this->find()->orderBy('leader_points DESC')->one();
+        return $this->find()->where(['group_id'=>Yii::$app->user->identity->group_id])->with('groupUser')->orderBy('leader_points DESC')->one();
     }
 }

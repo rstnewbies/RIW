@@ -55,7 +55,7 @@ class User extends ActiveRecord implements IdentityInterface
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::className(), 'targetAttribute' => ['group_id' => 'id']],
-            ['group_id','integer'], 
+            [['group_id','leader_points','voting'],'integer'], 
         ];
     }
 
@@ -208,5 +208,9 @@ class User extends ActiveRecord implements IdentityInterface
     public function getGroupUser()
     {
         return $this->hasMany(User::className(),['group_id'=>'group_id']);
+    }
+    
+    public function getLeader(){
+        return $this->find()->orderBy('leader_points DESC')->one();
     }
 }

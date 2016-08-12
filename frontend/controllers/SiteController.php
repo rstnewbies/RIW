@@ -7,11 +7,12 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use common\models\LoginForm;
+use frontend\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use common\models\User;
 
 /**
  * Site controller
@@ -72,7 +73,18 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        if(Yii::$app->user->isGuest){
+            $model = new LoginForm();
+            if ($model->load(Yii::$app->request->post()) && $model->login()) {
+                return $this->goBack();
+            } else {
+                return $this->render('login', [
+                    'model' => $model,
+            ]);
+        }
+        }else{
+            return $this->render('index');
+        }
     }
 
     /**
@@ -209,5 +221,20 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+    
+        public function actionInfo(){
+        return $this->render('info');
+    }
+    
+    public function actionLeader($id){
+        $loggedUser = Yii::$app->user->identity;
+        $loggedUser->voting = 1;
+        $loggedUser->save();
+        
+        $user = User::findOne($id);
+        $user->leader_points = $user->leader_points + 1;
+        $user->save();
+        return $this->redirect(['index']);
     }
 }

@@ -18,7 +18,7 @@ class TaskController extends Controller
             'query' => Task::find(),
         ]);
 
-        return $this->render('task', [
+        return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
     }

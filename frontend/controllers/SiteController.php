@@ -83,6 +83,13 @@ class SiteController extends Controller
         }
         }else{
             return $this->render('index');
+            $dataProvider = new ActiveDataProvider([
+            'query' => Task::find(),
+        ]);
+
+        return $this->render('task', [
+            'dataProvider' => $dataProvider,
+        ]);
         }
     }
 

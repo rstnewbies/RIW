@@ -13,17 +13,7 @@ class ReaderForm extends Model
     {
         return [
             [['code'],'required'],
-            [['code'],'validatePassword'],
+            [['code'],  \app\components\CodeValidator::className()],
         ];
-    }
-    
-    public function validatePassword($attribute, $params)
-    {
-        if ($this->hasErrors()) {
-            $user = $this->getUser();
-            if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect username or password.');
-            }
-        }
     }
 }

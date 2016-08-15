@@ -3,6 +3,8 @@
 namespace frontend\controllers;
 
 use frontend\models\ReaderForm;
+use Yii;
+use yii\bootstrap\Alert;
 
 class CodeController extends \yii\web\Controller
 {
@@ -14,8 +16,13 @@ class CodeController extends \yii\web\Controller
     public function actionReader()
     {
         $model = new ReaderForm();
-        return $this->render('reader', [
+        
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            return $this->goBack();
+        } else {
+            return $this->render('reader', [
                 'model' => $model,
             ]);
+        }
     }
 }

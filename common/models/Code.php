@@ -28,6 +28,7 @@ class Code extends \yii\db\ActiveRecord
     {
         return [
             [['code', 'task_id'], 'required'],
+            [['code'],  \app\components\CodeValidator::className()],
             [['task_id'], 'integer'],
             [['task_id'], 'exist', 'skipOnError' => true, 'targetClass' => Task::className(), 'targetAttribute' => ['task_id' => 'id']],
             [['code'], 'string', 'max' => 255],

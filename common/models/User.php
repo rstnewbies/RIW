@@ -55,7 +55,7 @@ class User extends ActiveRecord implements IdentityInterface
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED, self::STATUS_ADMIN]],
             [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => Group::className(), 'targetAttribute' => ['group_id' => 'id']],
-            ['group_id','integer'], 
+            [['group_id','leader_points','voting'],'integer'], 
         ];
     }
 
@@ -171,8 +171,8 @@ class User extends ActiveRecord implements IdentityInterface
         $this->password_hash = Yii::$app->security->generatePasswordHash($password);
     }
     
-    public static function getPassword(){
-        return 'pass';
+    public function getPassword(){
+        return $this->username;
     }
 
     /**
@@ -206,6 +206,16 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->hasOne(Group::className(), ['id' => 'group_id']);
     }
-
-
+  
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getGroupUser()
+    {
+        return $this->hasMany(User::className(),['group_id'=>'group_id']);
+    }
+    
+    public function getLeader(){
+        return $this->find()->where(['group_id'=>Yii::$app->user->identity->group_id])->with('groupUser')->orderBy('leader_points DESC')->one();
+    }
 }

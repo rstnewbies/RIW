@@ -21,7 +21,7 @@ $dataProvider = new ActiveDataProvider([
             <div class="col-lg-12 text-center kafelek time-arena ">
                 <?php echo \russ666\widgets\Countdown::widget([
                     'datetime' => \common\models\Time::getEndTime(),
-                    'format' => '%H:%M:%S',
+                    'format' => '%-D:%-H:%-M:%-S',
                     'events' => [
                         'finish' => 'function(){location.reload()}',
                     ],])?>

@@ -20,10 +20,10 @@ $this->title = 'RSTKompas';
     <div class="col-lg-6 bot-margin">
         <div class="module form-module login-form">
           
-            <h3 class="login-text text-center">Start your adventure here!</h3>
-            
+            <h3 class="login-text text-center">Start your adventure here!</h3> 
+                   
             <?php $form = ActiveForm::begin(['id' => 'login-form','class'=>'form-height']); ?>
-                      
+           
                 <?= $form->field($model, 'username')->textInput(['class'=>'','placeholder'=>'Email'])->label("") ?>
 
                 <?= $form->field($model, 'password')->textInput(['class'=>'','placeholder'=>'Password','type'=>'password'])->label("") ?>

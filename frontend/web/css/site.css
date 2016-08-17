@@ -201,17 +201,6 @@ a.desc:after {
   font-size: 13vw;
 }
 
-.qr-btn{
-  position: relative;
-  background: #ffffff;
-  border-top: 5px solid #03ad4a;
-  border-bottom: 5px solid #03ad4a;
-  color:#01632a;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  margin: 0 auto;
-  font-size: 8vw;
-}
-
 .obrazek-btn{
   position: relative;
   background: #ffffff;
@@ -222,6 +211,7 @@ a.desc:after {
 }
 .kafelek{
   margin-bottom: 5vh;
+  position: relative;
 }
 
 .profil-btn{
@@ -254,6 +244,25 @@ a.desc:after {
     border-top-color: #e84855;
     border-bottom-color: #59c9a5;
     margin-bottom: 5vh;
+}
+.zadania-1{
+     border: 0;
+    background: #ffffff;
+    border-bottom: 10px;
+    border-top: 10px;
+    border-style: solid;
+    border-top-color: #ffcc33;
+    border-bottom-color: #ffcc33;
+    margin-bottom: 5vh;
+}
+.zadania-1-t{
+    font-size: 7vw;
+    margin-top:2vh;
+    color : #003333;
+}
+
+.zadania-1-d{
+   font-size: 4vw;
 }
 
 .info-1-t{
@@ -313,11 +322,64 @@ a.desc:after {
 }
 
 .info-end{
-    border: 0;
-    background: #ffffff;
-    border-top: 10px;
-    border-style: solid;
-    border-top-color: #8a4f7d;
-    border-radius: 0 0 30px 30px;
-    font-size: 10vw;
+   border: 0;
+   background: #ffffff;
+   border-top: 10px;
+   border-style: solid;
+   border-top-color: #8a4f7d;
+   border-radius: 0 0 30px 30px;
+   font-size: 10vw;
+}
+
+.info-btn{
+  background: #ffffff;
+  border: 5px solid #6600ff;
+  color:#6600ff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  font-size: 8vw;
+  left: 15px;
+}
+
+.zadania-btn{
+  background: #ffffff;
+  border-top: 5px solid #ffcc33;
+  border-bottom: 5px solid #ffcc33;
+  color:#ffcc33;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  font-size: 8vw;
+}
+
+.cos-btn{
+  right: 15px;
+  background: #ffffff;
+  border: 5px solid #ff9900;
+  color: #ff9900;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  font-size: 8vw;
+  text-align: center;
+}
+
+.qr-btn{
+  background: #ffffff;
+  border: 5px solid #03ad4a;
+  color:#01632a;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  font-size: 8vw;
+}
+
+.zadania {
+font-size: 5vw; 
+color: #5f5f5f;
+}
+
+.qrskaner
+{
+ border: 5px solid #03ad4a;   
+ color : #5F9F9F;
+ font-size: 4vw;
+    
 }

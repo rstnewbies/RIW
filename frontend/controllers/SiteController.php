@@ -225,4 +225,10 @@ class SiteController extends Controller
         public function actionInfo(){
         return $this->render('info');
     }
+      public function actionTasks(){
+        return $this->render('tasks');
+    }
+      public function actionQrskaner(){
+        return $this->render('qrskaner');
+    }
 }

@@ -244,4 +244,10 @@ class SiteController extends Controller
         $user->save();
         return $this->redirect(['index']);
     }
+     public function actionTasks(){
+        return $this->render('tasks');
+    }
+      public function actionQrskaner(){
+        return $this->render('qrskaner');
+    }
 }

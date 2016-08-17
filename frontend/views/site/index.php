@@ -19,8 +19,13 @@ $dataProvider = new ActiveDataProvider([
     <div class="jumbotron">
         <div class="row">
             <div class="col-lg-12 text-center kafelek time-arena ">
-                <t>47:23:32</t>
-            </div>
+                <?php echo \russ666\widgets\Countdown::widget([
+                    'datetime' => \common\models\Time::getEndTime(),
+                    'format' => '%H:%M:%S',
+                    'events' => [
+                        'finish' => 'function(){location.reload()}',
+                    ],])?>
+        </div>
         </div>
         
         <div class="row">
@@ -39,6 +44,7 @@ $dataProvider = new ActiveDataProvider([
         ],
     ]); ?>
     <?php echo Html::a("Pełna lista Tasków", ["task/index"],['class'=>'btn btn-lg task-btn dashboard-btn'])?>  <br><br>
+
         </div>
         <div class="col-lg-12 text-center kafelek qr-btn">
             

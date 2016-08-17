@@ -411,3 +411,87 @@ color: #5f5f5f;
  font-size: 4vw;
     
 }
+
+/*
+* Score board
+*/
+
+.sb-position-1{
+     border: 2px solid black;
+     border-right: 0;
+}
+
+.sb-name-1{
+    border: 2px solid black;
+    border-right: 0;
+    border-left: 0;
+}
+
+.sb-score-1{
+    border: 2px solid black;
+    border-left:  0;
+}
+
+.sb-position-2{
+     border: 2px solid black;
+     border-right: 0;
+}
+
+.sb-name-2{
+    border: 2px solid black;
+    border-right: 0;
+    border-left: 0;
+}
+
+.sb-score-2{
+    border: 2px solid black;
+    border-left:  0;
+}
+
+.sb-position-3{
+     border: 2px solid black;
+     border-right: 0;
+}
+
+.sb-name-3{
+    border: 2px solid black;
+    border-right: 0;
+    border-left: 0;
+}
+
+.sb-score-3{
+    border: 2px solid black;
+    border-left:  0;
+}
+
+.sb-position-4{
+     border: 2px solid black;
+     border-right: 0;
+}
+
+.sb-name-4{
+    border: 2px solid black;
+    border-right: 0;
+    border-left: 0;
+}
+
+.sb-score-4{
+    border: 2px solid black;
+    border-left:  0;
+}
+
+.sb-position-5{
+     border: 2px solid black;
+     border-right: 0;
+}
+
+.sb-name-5{
+    border: 2px solid black;
+    border-right: 0;
+    border-left: 0;
+}
+
+.sb-score-5{
+    border: 2px solid black;
+    border-left:  0;
+}

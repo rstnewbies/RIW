@@ -4,13 +4,41 @@
 use yii\helpers\Html;
 use yii\bootstrap\Modal;
 use common\models\User;
+use \common\models\Task;
+use yii\grid\GridView;
+use yii\data\ActiveDataProvider;
 
-$this->title = 'My Yii Application';
+$this->title = 'RST Compas';
+$dataProvider = new ActiveDataProvider([
+    'query' => Task::find(),
+    'pagination' => [
+        'pageSize' => 40,
+    ],]);
 ?>
 <div class="site-index">
     <div class="jumbotron">
-        <div class="col-lg-12 text-center kafelek time-arena ">
-            <t>47:23:32</t>
+        <div class="row">
+            <div class="col-lg-12 text-center kafelek time-arena ">
+                <t>47:23:32</t>
+            </div>
+        </div>
+        
+        <div class="row">
+            <?php echo Html::a("Code", ["code/reader"],['class'=>'btn btn-lg btn-warning dashboard-btn']); ?>  
+        </div>
+
+        <div class="row">
+        <div class="col-lg-12 text-center kafelek task-view">
+        	<h2>Lista Tasków</h2>
+        	<?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'columns' => [ 
+            'title',
+            'text:ntext',
+            'score',
+        ],
+    ]); ?>
+    <?php echo Html::a("Pełna lista Tasków", ["task/index"],['class'=>'btn btn-lg task-btn dashboard-btn'])?>  <br><br>
         </div>
         <div class="col-lg-12 text-center kafelek qr-btn">
             
@@ -38,3 +66,6 @@ $this->title = 'My Yii Application';
     }
         ?>
    
+
+</div>
+

@@ -7,6 +7,7 @@ use common\models\User;
 use \common\models\Task;
 use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
+use yii\helpers\Url;
 
 $this->title = 'RST Compas';
 $dataProvider = new ActiveDataProvider([
@@ -29,11 +30,21 @@ $dataProvider = new ActiveDataProvider([
         </div>
         
         <div class="row">
-            <?php echo Html::a("Code", ["code/reader"],['class'=>'btn btn-lg btn-warning dashboard-btn']); ?>  
+            <div class ="kafelek col-xs-12">
+           <div class="col-xs-4 text-center cos-btn">
+             <t>Cos</t>
+           </div>
+           <a href = "<?php  echo Url::toRoute('code/reader')?>" class= "col-xs-4 text-center qr-btn" >
+             <t>Kody</t>
+           </a>
+           <a href = "<?php echo Url::toRoute('site/info')?>" class="col-xs-4 text-center info-btn">
+             <t>Info</t>
+           </a>
+        </div>
         </div>
 
         <div class="row">
-        <div class="col-lg-12 text-center kafelek task-view">
+        <div class="col-xs-12 text-center kafelek zadania-btn">
         	<h2>Lista Tasków</h2>
         	<?= GridView::widget([
         'dataProvider' => $dataProvider,

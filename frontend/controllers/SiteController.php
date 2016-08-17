@@ -12,6 +12,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use common\models\User;
 
 /**
  * Site controller
@@ -83,6 +84,13 @@ class SiteController extends Controller
         }
         }else{
             return $this->render('index');
+            $dataProvider = new ActiveDataProvider([
+            'query' => Task::find(),
+        ]);
+
+        return $this->render('task', [
+            'dataProvider' => $dataProvider,
+        ]);
         }
     }
 
@@ -224,5 +232,16 @@ class SiteController extends Controller
     
         public function actionInfo(){
         return $this->render('info');
+    }
+    
+    public function actionLeader($id){
+        $loggedUser = Yii::$app->user->identity;
+        $loggedUser->voting = 1;
+        $loggedUser->save();
+        
+        $user = User::findOne($id);
+        $user->leader_points = $user->leader_points + 1;
+        $user->save();
+        return $this->redirect(['index']);
     }
 }

@@ -212,6 +212,25 @@ a.desc:after {
   font-size: 8vw;
 }
 
+.task-btn{
+  position: relative;
+  background: #1abc9c; 
+  marigin: 0 auto;
+  color: #ffffff;
+
+}
+
+.task-view{
+  position: relative;
+  background: #ffffff;
+  border-top: 5px solid #03ad4a;
+  border-bottom: 5px solid #03ad4a;
+  color:#01632a;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  font-size: auto;
+}
+
 .obrazek-btn{
   position: relative;
   background: #ffffff;
@@ -320,4 +339,8 @@ a.desc:after {
     border-top-color: #8a4f7d;
     border-radius: 0 0 30px 30px;
     font-size: 10vw;
+}
+
+.leader-btn{
+    margin-bottom: 2px;
 }

@@ -56,4 +56,5 @@ class Task extends \yii\db\ActiveRecord
     public static function getTitle(){
         return $this->title;
     }
+
 }

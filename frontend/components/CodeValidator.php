@@ -11,12 +11,11 @@ class CodeValidator extends Validator
 {
     public function validateAttribute($model, $attribute)
     {
-        if (!Code::findByCode($model->$attribute)) {
+         $code = Code::findByCode($model->$attribute);
+
+        if ($code===null) {
             $this->addError($model, $attribute, 'Napewno dobrze wpisałeś ? Takiego kodu nie ma w bazie.');
-        }  else {
-            
-            $code = Code::findByCode($model->$attribute);
-            
+        }  else {  
             if(CompleteTask::findCompleteTask(Yii::$app->user->identity->group_id,$code->task_id)){
                 $this->addError($model, $attribute, 'Już wpisałeś ten kod :)');
             }else{

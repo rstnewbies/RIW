@@ -11,7 +11,7 @@ use common\models\Group;
 $this->title = 'RST Compas';
 $loggedUser = Yii::$app->user->identity;
 $dataProvider = new ActiveDataProvider([
-    'query' => Task::find(),
+	'query' => Task::find(),
     'pagination' => [
         'pageSize' => 40,
     ],]);
@@ -48,7 +48,7 @@ $dataProvider = new ActiveDataProvider([
 
 <!-- Tasks -->
         <div class="row">
-            <div class="col-xs-12 text-center kafelek zadania-btn">
+            <div class="col-xs-12 text-center kafelek task-view">
         	<h2>Lista Tasków</h2>
                 <?= GridView::widget([
                     'dataProvider' => $dataProvider,

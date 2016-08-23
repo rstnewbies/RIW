@@ -4,17 +4,20 @@ use yii\helpers\Html;
 use yii\bootstrap\Modal;
 use common\models\User;
 use \common\models\Task;
+use \common\models\CompleteTask;
 use yii\grid\GridView;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Url;
 use common\models\Group;
+
 $this->title = 'RST Compas';
 $loggedUser = Yii::$app->user->identity;
-$dataProvider = new ActiveDataProvider([
-	'query' => Task::find(),
-    'pagination' => [
-        'pageSize' => 40,
-    ],]);
+$groupId = Group::find()->select('id')->asArray()->all();
+$completeTasksIds = CompleteTask::find()->where(['group_id' => $groupId])->select('task_id')->asArray()->all();
+  
+  $dataProvider = new ActiveDataProvider([
+            'query' => Task::find()->where(['not in', 'id', $completeTasksIds])->limit(5),
+        ]);
 ?>
 <div class="site-index">
     <div class="jumbotron">

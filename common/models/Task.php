@@ -56,5 +56,9 @@ class Task extends \yii\db\ActiveRecord
     public static function getTitle(){
         return $this->title;
     }
+	
+	public static function getUndoneTasks(){
+		
 
+	}
 }

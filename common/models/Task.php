@@ -57,8 +57,4 @@ class Task extends \yii\db\ActiveRecord
         return $this->title;
     }
 	
-	public static function getUndoneTasks(){
-		
-
-	}
 }

@@ -26,7 +26,7 @@ $completedTasks = new ActiveDataProvider([
 
 <div class="task-view uncomplete-task-view">
 
-    <h1>Lista nieukończonych zadań</h1>
+    <h2>Lista nieukończonych zadań</h2>
 
     <?= GridView::widget([
 	
@@ -42,7 +42,7 @@ $completedTasks = new ActiveDataProvider([
 <br></br>
 <div class="task-view">
 
-    <h1>Lista ukończonych zadań</h1>
+    <h2>Lista ukończonych zadań</h2>
 
     <?= GridView::widget([
 	

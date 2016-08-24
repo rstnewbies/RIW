@@ -12,14 +12,21 @@ use \common\models\Group;
 
 $this->title = 'Tasks';
 $this->params['breadcrumbs'][] = $this->title;
+$group = Group::find()->where(['id' => Yii::$app->user->identity->group_id])->one();
+$completeTasksIds = CompleteTask::find()->where(['group_id' => $group->id])->select('task_id')->asArray()->all();
+$completedIds = Array();
+foreach($completeTasksIds as $task){
+	$completedIds[] = $task['task_id'];
+}
 
-$completeTasksIds = CompleteTask::find()->where(['group_id' => Yii::$app->user->identity->group_id])->select('task_id')->asArray()->all();
 $unCompletedTasks = new ActiveDataProvider([
-            'query' => Task::find()->where(['not in', 'id', $completeTasksIds]),
-        ]);
+            'query' => Task::find()->where(['not in', 'id', $completedIds]),
+		]);
+		
 $completedTasks = new ActiveDataProvider([
-	'query' => Task::find()->where(['in', 'id', $completeTasksIds]),
-]);
+	'query' => Task::find()->where(['in', 'id', $completedIds]),
+		]);
+
 ?>
 
 <?php echo Html::a("Powrót do Panelu", ["site/index"],['class'=>'btn btn-lg task-btn dashboard-btn'])?>  <br><br>
@@ -34,7 +41,6 @@ $completedTasks = new ActiveDataProvider([
         'columns' => [    
             'title',
             'text:ntext',
-            'score',
         ],
     ]); ?>
 	

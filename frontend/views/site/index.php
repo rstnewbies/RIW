@@ -12,11 +12,16 @@ use common\models\Group;
 
 $this->title = 'RST Compas';
 $loggedUser = Yii::$app->user->identity;
-$groupId = Group::find()->select('id')->asArray()->all();
-$completeTasksIds = CompleteTask::find()->where(['group_id' => $groupId])->select('task_id')->asArray()->all();
-  
+
+$completeTasksIds = CompleteTask::find()->where(['group_id' => $loggedUser->group_id])->select('task_id')->asArray()->all();
+
+$completedIds = Array();
+foreach($completeTasksIds as $task){
+	$completedIds[] = $task['task_id'];
+}
+
   $dataProvider = new ActiveDataProvider([
-            'query' => Task::find()->where(['not in', 'id', $completeTasksIds])->limit(5),
+            'query' => Task::find()->where(['not in', 'id', $completedIds])->limit(5),
         ]);
 ?>
 <div class="site-index">
@@ -38,7 +43,7 @@ $completeTasksIds = CompleteTask::find()->where(['group_id' => $groupId])->selec
         <div class="row">
             <div class ="kafelek col-xs-12">
                 <div class="col-xs-4 text-center cos-btn">
-                    <t>Cos</t>
+                    <t>Obraz</t>
                 </div>
             <a href = "<?php  echo Url::toRoute('code/reader')?>" class= "col-xs-4 text-center qr-btn" >
                 <t>Kody</t>
@@ -52,7 +57,7 @@ $completeTasksIds = CompleteTask::find()->where(['group_id' => $groupId])->selec
 <!-- Tasks -->
         <div class="row">
             <div class="col-xs-12 text-center kafelek task-view">
-        	<h2>Lista Tasków</h2>
+        	<h2>Lista Nieukończonych Tasków</h2>
                 <?= GridView::widget([
                     'dataProvider' => $dataProvider,
                     'columns' => [ 

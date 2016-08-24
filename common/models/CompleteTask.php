@@ -47,4 +47,8 @@ class CompleteTask extends \yii\db\ActiveRecord
     public static function findCompleteTask($group_id,$task_id){
         return static::findOne(['group_id' => $group_id,'task_id' => $task_id]);
     }
+	
+	public function getTask(){
+		return $this->hasOne(Task::className(), ['id'=> 'task_id']);
+	}
 }

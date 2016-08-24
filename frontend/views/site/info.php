@@ -3,9 +3,13 @@
 /* @var $this yii\web\View */
 
 use yii\helpers\Html;
+use \common\models\User;
 
 $this->title = 'Informacje';
 $this->params['breadcrumbs'][] = $this->title;
+$loggedUser = Yii::$app->user->identity->group_id; 
+$friendlyUsers = User::find()->where(['in', 'group_id', $loggedUser])->orderBy('leader_points DESC')->all();
+
 ?>
 <div class="site-about">
     <div class="col-lg-12 text-center info-title">
@@ -51,17 +55,21 @@ $this->params['breadcrumbs'][] = $this->title;
         <t class="info-3-t"> Twoja kompania </t>
         <br>
         <t class="info-3-d">
-            *User*(lider)
-            <br>
-            *User*
-            <br>
-            *User*
-            <br>
-            *User*
-            <br>
-            *User*
-            <br>
-            *User*
+			<?php
+			$foundLeader = false;
+			foreach($friendlyUsers as $users){
+				if(!$foundLeader){
+					//if leader have same leader_points, The fisrt User become a leader 
+					echo $users->name, " ", $users->last_name, " (lider)";
+					$foundLeader = true;
+				}
+				else {
+					echo $users->name, " ", $users->last_name;
+				}
+			}
+            
+				
+			?>
         </t>
     </div>
     

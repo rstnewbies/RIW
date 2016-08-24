@@ -2,7 +2,7 @@
 /* @var $this yii\web\View */
 use yii\helpers\Html;
 use yii\bootstrap\Modal;
-use common\models\User;
+use \common\models\User;
 use \common\models\Task;
 use \common\models\CompleteTask;
 use yii\grid\GridView;

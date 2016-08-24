@@ -34,9 +34,9 @@ $completedTasks = new ActiveDataProvider([
 <div class="task-view uncomplete-task-view">
 
     <h2>Lista nieukończonych zadań</h2>
-
-    <?= GridView::widget([
 	
+    <?= GridView::widget([
+		//I create two list becouse PO tell to not show points per task in uncomplete task, but score must be show in complete task
         'dataProvider' => $unCompletedTasks,
         'columns' => [    
             'title',

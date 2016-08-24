@@ -12,8 +12,8 @@ use \common\models\Group;
 
 $this->title = 'Tasks';
 $this->params['breadcrumbs'][] = $this->title;
-$groupId = Group::find()->select('id')->asArray()->all();
-$completeTasksIds = CompleteTask::find()->where(['group_id' => $groupId])->select('task_id')->asArray()->all();
+
+$completeTasksIds = CompleteTask::find()->where(['group_id' => Yii::$app->user->identity->group_id])->select('task_id')->asArray()->all();
 $unCompletedTasks = new ActiveDataProvider([
             'query' => Task::find()->where(['not in', 'id', $completeTasksIds]),
         ]);

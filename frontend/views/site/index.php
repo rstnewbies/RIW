@@ -63,7 +63,6 @@ foreach($completeTasksIds as $task){
                     'columns' => [ 
                         'title',
                         'text:ntext',
-                        'score',
                         ],]); ?>
                 <?php echo Html::a("Pełna lista Tasków", ["task/index"],['class'=>'btn btn-lg task-btn dashboard-btn'])?>  <br><br>
             </div>
@@ -149,7 +148,7 @@ foreach($completeTasksIds as $task){
         }      
         Modal::end(); 
     }
-        ?>
+    ?>
    
 
 </div>

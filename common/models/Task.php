@@ -2,7 +2,9 @@
 
 namespace common\models;
 
+
 use Yii;
+use \common\models\Code;
 
 /**
  * This is the model class for table "task".
@@ -13,7 +15,6 @@ use Yii;
  */
 class Task extends \yii\db\ActiveRecord
 {
-    
     
     /**
      * @inheritdoc
@@ -56,5 +57,19 @@ class Task extends \yii\db\ActiveRecord
     public static function getTitle(){
         return $this->title;
     }
-	
+    
+    
+    public function beforeSave($insert){
+    if (parent::beforeSave($insert)) {
+        $length = rand(12, 20);
+        $randomString = Yii::$app->getSecurity()->generateRandomString($length);
+        $code = new Code();
+        $code->code = $randomString;
+        $code->save();
+        print_r($code->code);
+        return true;
+    } else {
+          return false;
+    }
+   }	
 }

@@ -59,14 +59,16 @@ class Task extends \yii\db\ActiveRecord
     }
     
     
-    public function beforeSave($insert){
+    
+    public function afterSave($insert){
     if (parent::beforeSave($insert)) {
         $length = rand(12, 20);
         $randomString = Yii::$app->getSecurity()->generateRandomString($length);
         $code = new Code();
         $code->code = $randomString;
+        $code->task_id = $this->id;
         $code->save();
-        print_r($code->code);
+        
         return true;
     } else {
           return false;

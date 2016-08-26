@@ -62,6 +62,7 @@ class Task extends \yii\db\ActiveRecord
     
     public function afterSave($insert){
     if (parent::beforeSave($insert)) {
+        //this execute only with insert new record to task table, never execute when update or something
         $length = rand(12, 20);
         $randomString = Yii::$app->getSecurity()->generateRandomString($length);
         $code = new Code();
@@ -73,5 +74,16 @@ class Task extends \yii\db\ActiveRecord
     } else {
           return false;
     }
-   }	
+   }
+   
+   public function beforeDelete(){
+        if (parent::beforeDelete()) {
+        //this delete code when someone delete task
+        Code::deleteAll($this->id == 'task_id');
+        return true;
+    } else {
+        return false;
+    }
+   }
+   
 }

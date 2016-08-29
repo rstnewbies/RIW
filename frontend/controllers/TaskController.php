@@ -16,4 +16,27 @@ class TaskController extends Controller
     {
         return $this->render('index');
     }
+    
+   public function actionView($id)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+   
+    public function actionDoneTaskView($id)
+    {
+        return $this->render('doneTaskView', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+    
+    protected function findModel($id)
+    {
+        if (($model = Task::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
 }

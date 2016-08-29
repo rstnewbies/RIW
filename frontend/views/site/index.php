@@ -63,6 +63,14 @@ foreach($completeTasksIds as $task){
                     'columns' => [ 
                         'title',
                         'text:ntext',
+                        [   
+                            'label' => 'Link do zadania',
+                            'format' => 'raw',
+                            'value' => function($dataProvider){
+                                return Html::a("Link do zadania", ['task/view', 'id' => $dataProvider->id]);
+                            },
+                        ],
+                        
                         ],]); ?>
                 <?php echo Html::a("Pełna lista Tasków", ["task/index"],['class'=>'btn btn-lg task-btn dashboard-btn'])?>  <br><br>
             </div>

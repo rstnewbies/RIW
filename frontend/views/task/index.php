@@ -41,6 +41,13 @@ $completedTasks = new ActiveDataProvider([
         'columns' => [    
             'title',
             'text:ntext',
+            [   
+                'label' => 'Link do zadania',
+                'format' => 'raw',
+                'value' => function($dataProvider){
+                return Html::a("Link do zadania", ['task/view', 'id' => $dataProvider->id]);
+                },
+            ],
         ],
     ]); ?>
 	
@@ -57,6 +64,13 @@ $completedTasks = new ActiveDataProvider([
             'title',
             'text:ntext',
             'score',
+            [   
+                'label' => 'Link do zadania',
+                'format' => 'raw',
+                'value' => function($dataProvider){
+                return Html::a("Link do zadania", ['task/view', 'id' => $dataProvider->id]);
+                },
+            ],
         ],
     ]); ?>
 </div>

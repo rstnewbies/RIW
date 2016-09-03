@@ -7,7 +7,8 @@ use Yii;
 /**
  * This is the model class for table "image".
  *
- * @property string $name
+ * @property integer $id
+ * @property string $path
  * @property integer $score_sum
  */
 class Image extends \yii\db\ActiveRecord
@@ -26,9 +27,9 @@ class Image extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'score_sum'], 'required'],
+            [['path', 'score_sum'], 'required'],
             [['score_sum'], 'integer'],
-            [['name'], 'string', 'max' => 32],
+            [['path'], 'string', 'max' => 32],
         ];
     }
 
@@ -38,7 +39,8 @@ class Image extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'name' => 'Name',
+            'id' => 'ID',
+            'path' => 'Path',
             'score_sum' => 'Score Sum',
         ];
     }

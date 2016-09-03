@@ -26,7 +26,7 @@ class TaskController extends Controller
    
     public function actionDoneTaskView($id)
     {
-        return $this->render('doneTaskView', [
+        return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
     }

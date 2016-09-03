@@ -76,32 +76,22 @@ foreach($completeTasksIds as $task){
             </div>
             <div>
                 <?php
-                $loggedUserGroupPosition = 0;
                 $count = 1;
-                $top_group = Group::find()->where('id>0')->orderBy('score DESC')->limit(4)->all();
                 $allGroup = Group::find()->where('id>0')->orderBy('score DESC')->all();
-                
-                //count logged user group positon
-                foreach( $allGroup as $group){
-                    if($loggedUser->group_id === $group->id){
-                        $loggedUserGroupPosition = $count;
-                    }
-                    $count ++;
-                }
                 
                 $count = 1;
                 
                 //draw top 4 group
-                foreach ($top_group as $group) { 
+                foreach ($allGroup as $group) { 
                 echo "<div class='row'>"; 
                     echo "<div class = 'col-xs-3'></div>";
-                    echo "<div class = 'col-xs-1 sb-position-".$count."'>";
+                    echo "<div class = 'col-xs-1 sb-position'>";
                     echo "#".$count;
                     echo "</div>";
-                    echo "<div class = 'col-xs-4 sb-name-".$count."'>";
+                    echo "<div class = 'col-xs-4 sb-name'>";
                     echo $group->name;
                     echo "</div>";
-                    echo "<div class = 'col-xs-1 sb-score-".$count."'>";
+                    echo "<div class = 'col-xs-1 sb-score'>";
                     echo $group->score;
                     echo "pkt.";
                     echo "</div>";
@@ -109,22 +99,6 @@ foreach($completeTasksIds as $task){
                     
                 $count ++;
                 }
-                if($loggedUserGroupPosition > 4){
-                    $loggedUserGroup = Group::findOne($loggedUser->group_id);
-                    echo "<div class='row'>";    
-                        echo "<div class = 'col-xs-3'></div>";
-                        echo "<div class = 'col-xs-1 sb-position-5'>";
-                        echo "#".$loggedUserGroupPosition;
-                        echo "</div>";
-                        echo "<div class = 'col-xs-4 sb-name-5'>";
-                        echo $loggedUserGroup->name;
-                        echo "</div>";
-                        echo "<div class = 'col-xs-1 sb-score-5'>";
-                        echo $loggedUserGroup->score;
-                        echo "pkt.";
-                        echo "</div>";
-                    echo "</div>";
-                    }
                 ?>
             </div>
         </div>

@@ -44,4 +44,8 @@ class Image extends \yii\db\ActiveRecord
             'score_sum' => 'Score Sum',
         ];
     }
+    
+    public static function getImage($score){
+        return Image::find()->where(['score_sum' => $score])->path;
+    }
 }

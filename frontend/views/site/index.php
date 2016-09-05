@@ -42,9 +42,9 @@ foreach($completeTasksIds as $task){
 <!-- Button -->        
         <div class="row">
             <div class ="kafelek col-xs-12">
-                <div class="col-xs-4 text-center cos-btn">
-                    <t>Obraz</t>
-                </div>
+             <a href = "<?php  echo Url::toRoute('image/index')?>" class= "col-xs-4 text-center cos-btn" >    
+                <t>Obraz</t>
+             </a>   
             <a href = "<?php  echo Url::toRoute('code/reader')?>" class= "col-xs-4 text-center qr-btn" >
                 <t>Kody</t>
             </a>

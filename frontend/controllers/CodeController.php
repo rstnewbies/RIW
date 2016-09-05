@@ -13,15 +13,7 @@ class CodeController extends \yii\web\Controller
     {
         return $this->render('index');   
     }
-    
-    public function actions()
-    {
-        return [
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-            ],
-        ];
-    }
+   
     
     public function actionReader()
     {

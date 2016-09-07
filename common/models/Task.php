@@ -63,7 +63,7 @@ class Task extends \yii\db\ActiveRecord
     public function afterSave($insert){
     if (parent::beforeSave($insert)) {
         //this execute only with insert new record to task table, never execute when update or something
-        $length = rand(12, 20);
+        $length = rand(6, 8);
         $randomString = Yii::$app->getSecurity()->generateRandomString($length);
         $code = new Code();
         $code->code = $randomString;

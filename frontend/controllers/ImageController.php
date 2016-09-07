@@ -2,7 +2,7 @@
 
 namespace frontend\controllers;
 
-use common\models\Task;
+
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 

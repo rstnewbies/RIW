@@ -59,12 +59,12 @@ $friendlyUsers = User::find()->where(['in', 'group_id', $loggedUser])->orderBy('
 			$foundLeader = false;
 			foreach($friendlyUsers as $users){
 				if(!$foundLeader){
-					//if leader have same leader_points, The fisrt User become a leader 
-					echo $users->name, " ", $users->last_name, " (lider)";
+					//if more than one leader have same leader_points, The fisrt User become a leader 
+					echo $users->name, " ", $users->last_name, " (lider) <br>";
 					$foundLeader = true;
 				}
 				else {
-					echo $users->name, " ", $users->last_name;
+					echo $users->name, " ", $users->last_name, "<br>";
 				}
 			}
             

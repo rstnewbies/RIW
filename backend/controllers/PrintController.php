@@ -1,21 +1,22 @@
 <?php
 
-namespace frontend\controllers;
+namespace backend\controllers;
 
 use Yii;
+use yii\web\Controller;
 use common\models\Task;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
-use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 
-class TaskController extends Controller
+class PrintController extends Controller
 {
    public function actionIndex()
-    {
+    {   
+       
         return $this->render('index');
     }
+    
+
     
    public function actionView($id)
     {

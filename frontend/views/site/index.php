@@ -42,9 +42,9 @@ foreach($completeTasksIds as $task){
 <!-- Button -->        
         <div class="row">
             <div class ="kafelek col-xs-12">
-                <div class="col-xs-4 text-center cos-btn">
-                    <t>Obraz</t>
-                </div>
+             <a href = "<?php  echo Url::toRoute('image/index')?>" class= "col-xs-4 text-center cos-btn" >    
+                <t>Obraz</t>
+             </a>   
             <a href = "<?php  echo Url::toRoute('code/reader')?>" class= "col-xs-4 text-center qr-btn" >
                 <t>Kody</t>
             </a>
@@ -63,7 +63,14 @@ foreach($completeTasksIds as $task){
                     'columns' => [ 
                         'title',
                         'text:ntext',
-                        'score',
+                        [   
+                            'label' => 'Link do zadania',
+                            'format' => 'raw',
+                            'value' => function($dataProvider){
+                                return Html::a("Link do zadania", ['task/view', 'id' => $dataProvider->id]);
+                            },
+                        ],
+                        
                         ],]); ?>
                 <?php echo Html::a("Pełna lista Tasków", ["task/index"],['class'=>'btn btn-lg task-btn dashboard-btn'])?>  <br><br>
             </div>
@@ -123,7 +130,7 @@ foreach($completeTasksIds as $task){
         }      
         Modal::end(); 
     }
-        ?>
+    ?>
    
 
 </div>

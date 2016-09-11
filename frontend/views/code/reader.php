@@ -2,7 +2,6 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-
 $this->title = 'RST Compas';
 ?>
 <div class="jumbotron">
@@ -15,7 +14,6 @@ $this->title = 'RST Compas';
     <?php $form = ActiveForm::begin(); ?>
                       
                 <?= $form->field($model, 'code')->textInput() ?>
-            
                 <div class="form-group">
                     <?= Html::submitbutton('Sprawdz', ['class' => 'btn btn-primary']) ?>
                 </div>

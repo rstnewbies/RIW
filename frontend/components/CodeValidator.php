@@ -24,6 +24,8 @@ class CodeValidator extends Validator
                 $this->addError($model, $attribute, 'Już wpisałeś ten kod :)');
             }else{
                 $task = Task::findOne(['id'=>$code->task_id]);
+                
+                $this->addError($model, $attribute, 'Kod zaakceptowany! Twoja drużyna zdobyła punkty!');
                 $complete_task = new CompleteTask();
                 $complete_task->group_id = $group->id;
                 $complete_task->task_id = $code->task_id;

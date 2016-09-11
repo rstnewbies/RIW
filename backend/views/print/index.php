@@ -31,9 +31,7 @@ $task = new ActiveDataProvider([
                 'value' => function($dataProvider){
                     return Code::findByTaskId($dataProvider->id)->code;
                 }
-                
             ],
-            
         ],
     ]); ?>
 </div>

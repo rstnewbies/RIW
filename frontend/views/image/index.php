@@ -14,6 +14,6 @@ $currentImagePath = Image::getCurrentImage($allScore);
 
 <?php echo Html::a("Powrót do Panelu", ["site/index"],['class'=>'btn btn-lg task-btn dashboard-btn'])?>  <br><br>
 
-<div class = 'row'>
+<div class = 'img-responsive center-block text-center'>
     <?= Html::img('/images/'.$currentImagePath);?>
 </div>

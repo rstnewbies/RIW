@@ -42,14 +42,14 @@ foreach($completeTasksIds as $task){
 <!-- Button -->        
         <div class="row">
             <div class ="kafelek col-xs-12">
-             <a href = "<?php  echo Url::toRoute('image/index')?>" class= "col-xs-4 text-center cos-btn" >    
-                <t>Obraz</t>
+             <a href = "<?php  echo Url::toRoute('image/index')?>" class= "col-xs-4 text-center obraz-btn " >    
+                <t class = "obraz-text">Obraz</t>
              </a>   
             <a href = "<?php  echo Url::toRoute('code/reader')?>" class= "col-xs-4 text-center qr-btn" >
-                <t>Kody</t>
+                <t class = "text-6vw">Kody</t>
             </a>
             <a href = "<?php echo Url::toRoute('site/info')?>" class="col-xs-4 text-center info-btn">
-                <t>Info</t>
+                <t class = "text-6vw">Info</t>
             </a>
             </div>
         </div>
@@ -78,7 +78,7 @@ foreach($completeTasksIds as $task){
 
 <!-- Score board -->
         <div class="row">
-            <div>
+            <div class = "kafelek time-arena text-6vw">
                 Wyniki
             </div>
             <div>

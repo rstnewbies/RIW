@@ -4,6 +4,7 @@
 
 use yii\helpers\Html;
 use \common\models\User;
+use frontend\assets\AppAsset;
 
 $this->title = 'Informacje';
 $this->params['breadcrumbs'][] = $this->title;
@@ -12,49 +13,57 @@ $friendlyUsers = User::find()->where(['in', 'group_id', $loggedUser])->orderBy('
 
 ?>
 <div class="site-about">
-    <div class="col-lg-12 text-center info-title">
-        <t><?= Html::encode($this->title) ?></t>
+    <div class ="panel panel-primary text-center margin-bottom-">
+    <div class="col-lg-12 panel-heading ">
+        <t class = "inf-text"><?= Html::encode($this->title) ?></t>
     </div>
-    
-    <div class="col-lg-12 text-center info-1">
-        <t class="info-1-t"> Dekalog wyjazdu </t>
-        <br>
-        <t class="info-1-d">
-            -Opis wyjazdu*
-            <br>
-            -Opis wyjazdu*
-            <br>
-            -Opis wyjazdu*
-            <br>
-            -Opis wyjazdu*
-            <br>
-            -Opis wyjazdu*
-            <br>
-            -Opis wyjazdu*
-            <br>
-            -Opis wyjazdu*
-            <br>
-        </t>
     </div>
-    
-    <div class="col-lg-12 text-center info-2">
-        <t class="info-2-t"> Twoj kolor</t>
-        <br>
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4 info-color">
-            <br>
-            <br>
-            (nazwa)
-            <br>
-            <br>
+    <br>
+    <br>
+    <div class ="panel panel-info ">
+    <div class="col-lg-12 panel-heading">
+        Dekalog wyjazdu
+    </div>
+    <div class ="panel-body">
+       <t>
+                -Opis wyjazdu*
+                <br>
+                -Opis wyjazdu*
+                <br>
+                -Opis wyjazdu*
+                <br>
+                -Opis wyjazdu*
+                <br>
+                -Opis wyjazdu*
+                <br>
+                -Opis wyjazdu*
+                <br>
+                -Opis wyjazdu*
+             <br>
+            </t>
         </div>
-        <div class="col-lg-4"></div>
+    </div>
+    <div class ="panel panel-info">
+        <div class="col-lg-12 panel-heading">
+        Twój kolor
+        </div>
+        <div class ="panel-body">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4 info-color <?php GroupColor();?>">
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
     </div>
     
-    <div class="col-lg-12 text-center info-3">
-        <t class="info-3-t"> Twoja kompania </t>
-        <br>
-        <t class="info-3-d">
+    <div class="panel panel-info">
+        <div class="panel-heading"> 
+        Twoja kompania 
+        </div>
+
+        <div class="panel-body">
 			<?php
 			$foundLeader = false;
 			foreach($friendlyUsers as $users){
@@ -70,12 +79,20 @@ $friendlyUsers = User::find()->where(['in', 'group_id', $loggedUser])->orderBy('
             
 				
 			?>
-        </t>
+        </div>
     </div>
     
-    <div class="col-lg-12 text-center info-end">
-        <t>Miłej zabawy!</t>
+    <div class="panel panel-danger inf-dng">
+        <div class ="panel-heading text-center">
+       Miłej zabawy!
+        </div>
     </div>
     
 </div>
-    
+<?php 
+function GroupColor(){
+if(!Yii::$app->user->isGuest){
+    echo "color-".common\models\Group::findOne(Yii::$app->user->identity->group_id)->color."";
+}
+}
+?>    

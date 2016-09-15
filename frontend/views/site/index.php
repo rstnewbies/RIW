@@ -78,9 +78,8 @@ foreach($completeTasksIds as $task){
 
 <!-- Score board -->
         <div class="row">
-            <div class = "kafelek time-arena text-6vw">
+          <div class = "kafelek time-arena text-6vw">
                 Wyniki
-            </div>
             <div>
                 <?php
                 $count = 1;
@@ -108,6 +107,7 @@ foreach($completeTasksIds as $task){
                 }
                 ?>
             </div>
+          </div>
         </div>
 </div>
     
@@ -131,6 +131,4 @@ foreach($completeTasksIds as $task){
         Modal::end(); 
     }
     ?>
-   
-
 </div>

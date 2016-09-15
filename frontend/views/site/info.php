@@ -7,11 +7,13 @@ use \common\models\User;
 use frontend\assets\AppAsset;
 
 $this->title = 'Informacje';
-$this->params['breadcrumbs'][] = $this->title;
 $loggedUser = Yii::$app->user->identity->group_id; 
 $friendlyUsers = User::find()->where(['in', 'group_id', $loggedUser])->orderBy('leader_points DESC')->all();
 
 ?>
+<?php echo Html::a("Powrót do Panelu", ["site/index"],['class'=>'btn btn-lg task-btn dashboard-btn'])?>
+<br>
+<br>
 <div class="site-about">
     <div class ="panel panel-primary text-center margin-bottom-">
     <div class="col-lg-12 panel-heading ">

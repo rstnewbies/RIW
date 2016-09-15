@@ -4,6 +4,7 @@ use yii\bootstrap\ActiveForm;
 
 $this->title = 'RST Compas';
 ?>
+<?php echo Html::a("Powrót do Panelu", ["site/index"],['class'=>'btn btn-lg task-btn dashboard-btn'])?>
 <div class="jumbotron">
     
     <div class="row">

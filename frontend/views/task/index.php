@@ -11,7 +11,6 @@ use \common\models\Group;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Tasks';
-$this->params['breadcrumbs'][] = $this->title;
 $group = Group::find()->where(['id' => Yii::$app->user->identity->group_id])->one();
 $completeTasksIds = CompleteTask::find()->where(['group_id' => $group->id])->select('task_id')->asArray()->all();
 $completedIds = Array();

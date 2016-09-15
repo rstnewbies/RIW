@@ -429,6 +429,7 @@ color: #5f5f5f;
     border: 2px solid black;
     border-right: 0;
     border-left: 0;
+    border-top: 0;
 }
 
 .sb-score{
@@ -458,4 +459,8 @@ color: #5f5f5f;
 }
 .text-6vw{
     font-size: 7vw;
+}
+
+.text-score{
+    font-size: 3vw;
 }

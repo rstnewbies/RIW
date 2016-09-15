@@ -89,15 +89,15 @@ foreach($completeTasksIds as $task){
                 
                 //draw top 4 group
                 foreach ($allGroup as $group) { 
-                echo "<div class='row'>"; 
-                    echo "<div class = 'col-xs-3'></div>";
-                    echo "<div class = 'col-xs-1 sb-position'>";
+                echo "<div class='row '>"; 
+                    echo "<div class = 'col-xs-2'></div>";
+                    echo "<div class = 'col-xs-1'>";
                     echo "#".$count;
                     echo "</div>";
-                    echo "<div class = 'col-xs-4 sb-name'>";
+                    echo "<div class = 'col-xs-5'>";
                     echo $group->name;
                     echo "</div>";
-                    echo "<div class = 'col-xs-1 sb-score'>";
+                    echo "<div class = 'col-xs-1'>";
                     echo $group->score;
                     echo "pkt.";
                     echo "</div>";

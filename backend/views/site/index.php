@@ -1,6 +1,5 @@
 <?php
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 $this->title = 'My Yii Application';
@@ -32,6 +31,7 @@ $this->title = 'My Yii Application';
             <div class="col-lg-4 dashboard-div-btn">
                  <?php echo Html::a("Tasks & Code to print", ["print/index",'id'=>'1'],['class'=>'btn btn-lg btn-warning dashboard-btn']); ?>  
             </div>
+            
         </div>
 
     </div>

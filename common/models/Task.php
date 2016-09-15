@@ -79,7 +79,7 @@ class Task extends \yii\db\ActiveRecord
    public function beforeDelete(){
         if (parent::beforeDelete()) {
         //this delete code when someone delete task
-        Code::deleteAll($this->id == 'task_id');
+        Code::deleteAll('id = task_id');
         return true;
     } else {
         return false;

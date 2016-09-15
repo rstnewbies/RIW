@@ -18,7 +18,6 @@ use yii\widgets\ActiveForm;
     
     <?= $form->field($model, 'score')->dropDownList(['1'=>1,'3'=>3]) ?>
     
-    <?= $form->field($model, 'imageFile')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

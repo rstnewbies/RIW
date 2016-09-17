@@ -3,13 +3,11 @@
 namespace backend\controllers;
 use common\models\ShowImage;
 
-class ShowImageController extends \yii\web\Controller
+class UnShowImageController extends \yii\web\Controller
 {
     public function actionIndex()
     {   
-        $show = new ShowImage();
-        $show->show_me_image = 1;
-        $show->save();
+        ShowImage::deleteAll();
         return $this->render('index');
     }
 

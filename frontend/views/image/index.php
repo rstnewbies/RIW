@@ -2,8 +2,22 @@
 use yii\helpers\Html;
 use common\models\Image;
 use common\models\Group;
+use common\models\ShowImage;
+
 $this->title = 'Obrazek';
-$allScore = Group::find()->select('score')->sum('score');
+$allScore;
+$ShowImage = ShowImage::find()->select('show_me_image')->asArray()->all();
+$values = Array();
+
+foreach ($ShowImage as $show){
+    $values[] = $show['show_me_image'];
+}
+if($values == null){
+    $allScore = Group::find()->select('score')->sum('score') ;
+}else {
+    $allScore = 100;
+}
+
 $currentImagePath = Image::getCurrentImage($allScore);
 ?>
 

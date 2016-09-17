@@ -2,6 +2,7 @@
 use yii\helpers\Html;
 use common\models\Image;
 use common\models\Group;
+
 $this->title = 'Obrazek';
 $allScore = Group::find()->select('score')->sum('score');
 $currentImagePath = Image::getCurrentImage($allScore);

@@ -32,6 +32,10 @@ $this->title = 'My Yii Application';
                  <?php echo Html::a("Tasks & Code to print", ["print/index",'id'=>'1'],['class'=>'btn btn-lg btn-warning dashboard-btn']); ?>  
             </div>
             
+            <div class="col-lg-4 dashboard-div-btn">
+                 <?php echo Html::a("Odsłoń obrazek", ["auto-show-image/index",'id'=>'1'],['class'=>'btn btn-lg btn-warning dashboard-btn']); ?>  
+            </div>
+            
         </div>
 
     </div>

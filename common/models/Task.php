@@ -34,6 +34,7 @@ class Task extends \yii\db\ActiveRecord
             [['text'], 'string'],
             [['title'], 'string', 'max' => 255],
             [['score'], 'integer'],
+            [['image'], 'string', 'max' => 255],
         ];
     }
 
@@ -47,6 +48,7 @@ class Task extends \yii\db\ActiveRecord
             'title' => 'Title',
             'text' => 'Text',
             'score' => 'Score',
+            'image' => 'Image',
         ];
     }
     
@@ -79,11 +81,11 @@ class Task extends \yii\db\ActiveRecord
    public function beforeDelete(){
         if (parent::beforeDelete()) {
         //this delete code when someone delete task
-        Code::deleteAll('id = task_id');
+        Code::deleteAll(['task_id' => $this->id]);
         return true;
     } else {
         return false;
     }
    }
-   
+  
 }

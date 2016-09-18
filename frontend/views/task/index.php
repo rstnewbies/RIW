@@ -51,7 +51,7 @@ $completedTasks = new ActiveDataProvider([
                 'label'  => 'image',
                 'attribute' => 'photo',
                 'value' => function($dataProvider){
-                return 'http://yii-backend.com/'.Task::getImagePath($dataProvider->id)->image;},
+                return 'http://panel.kompas.rst.com.pl/'.Task::getImagePath($dataProvider->id)->image;},
                 'format' => ['image',['width'=>'50','height'=>'50']],
             ],
         ],
@@ -81,7 +81,7 @@ $completedTasks = new ActiveDataProvider([
                 'label'  => 'image',
                 'attribute' => 'photo',
                 'value' => function($dataProvider){
-                return 'http://yii-backend.com/'.Task::getImagePath($dataProvider->id)->image;},
+                return 'http://panel.kompas.rst.com.pl/'.Task::getImagePath($dataProvider->id)->image;},
                 'format' => ['image',['width'=>'50','height'=>'50']],
             ],
         ],

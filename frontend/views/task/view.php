@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
              [
                 'label'  => 'image',
                 'attribute'=>'photo',
-                'value' =>  'http://yii-backend.com/'.$model->image,
+                'value' =>  'http://panel.kompas.rst.com.pl/'.$model->image,
                 'format' => ['image',['width'=>'300','height'=>'300']],
             ],
         ],

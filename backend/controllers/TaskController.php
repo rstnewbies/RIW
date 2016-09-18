@@ -74,6 +74,7 @@ class TaskController extends Controller
             $imageName = $model->id;
             $model->file = UploadedFile::getInstance($model, 'file');
             $model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension);
+            
             // save the path in the db column
             $model->image = 'uploads/'.$imageName.'.'.$model->file->extension;
            

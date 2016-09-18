@@ -64,6 +64,9 @@ class Task extends \yii\db\ActiveRecord
         return $this->title;
     }
     
+    public static function getImagePath($id){
+       return static::findOne(['id' => $id]);
+    }
     
     
     public function afterSave($insert){

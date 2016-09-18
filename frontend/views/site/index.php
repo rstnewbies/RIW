@@ -26,7 +26,11 @@ foreach($completeTasksIds as $task){
 ?>
 <div class="site-index">
     <div class="jumbotron">
-        
+<!-- LOGO -->        
+    <div class="row">
+        <img src="rst_logo.png" class="img-responsive">
+    </div>
+<br>
 <!-- Timer -->      
         <div class="row">
             <div class="col-lg-12 text-center kafelek time-arena ">

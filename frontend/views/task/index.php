@@ -47,6 +47,13 @@ $completedTasks = new ActiveDataProvider([
                 return Html::a("Link do zadania", ['task/view', 'id' => $dataProvider->id]);
                 },
             ],
+            [
+                'label'  => 'image',
+                'attribute' => 'photo',
+                'value' => function($dataProvider){
+                return 'http://yii-backend.com/'.Task::getImagePath($dataProvider->id)->image;},
+                'format' => ['image',['width'=>'50','height'=>'50']],
+            ],
         ],
     ]); ?>
 	
@@ -69,6 +76,13 @@ $completedTasks = new ActiveDataProvider([
                 'value' => function($dataProvider){
                 return Html::a("Link do zadania", ['task/view', 'id' => $dataProvider->id]);
                 },
+            ],
+                        [
+                'label'  => 'image',
+                'attribute' => 'photo',
+                'value' => function($dataProvider){
+                return 'http://yii-backend.com/'.Task::getImagePath($dataProvider->id)->image;},
+                'format' => ['image',['width'=>'50','height'=>'50']],
             ],
         ],
     ]); ?>

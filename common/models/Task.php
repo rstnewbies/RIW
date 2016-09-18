@@ -19,6 +19,8 @@ class Task extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    
+    public $file;
     public static function tableName()
     {
         return 'task';
@@ -34,6 +36,8 @@ class Task extends \yii\db\ActiveRecord
             [['text'], 'string'],
             [['title'], 'string', 'max' => 255],
             [['score'], 'integer'],
+            [['file'], 'file'],
+            [['image'], 'string', 'max' => 255],
             
         ];
     }
@@ -48,6 +52,7 @@ class Task extends \yii\db\ActiveRecord
             'title' => 'Title',
             'text' => 'Text',
             'score' => 'Score',
+            'file' => 'Image',
         ];
     }
     
@@ -59,6 +64,9 @@ class Task extends \yii\db\ActiveRecord
         return $this->title;
     }
     
+    public static function getImagePath($id){
+       return static::findOne(['id' => $id]);
+    }
     
     
     public function afterSave($insert){

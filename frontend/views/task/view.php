@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\helpers\Url;
+
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Task */
@@ -19,6 +21,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'title',
             'text:ntext',
+             [
+                'label'  => 'image',
+                'attribute'=>'photo',
+                'value' =>  'http://yii-backend.com/'.$model->image,
+                'format' => ['image',['width'=>'300','height'=>'300']],
+            ],
         ],
     ]) ?>
 

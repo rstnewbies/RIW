@@ -4,11 +4,11 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Task;
-use common\models\UploadForm;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * TaskController implements the CRUD actions for Task model.
@@ -18,6 +18,8 @@ class TaskController extends Controller
     /**
      * @inheritdoc
      */
+    
+    
     public function behaviors()
     {
         return [
@@ -67,23 +69,19 @@ class TaskController extends Controller
         $model = new Task();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            
+            //get the instance of uploaded file;
+            $imageName = $model->id;
+            $model->file = UploadedFile::getInstance($model, 'file');
+            $model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension);
+            
+            // save the path in the db column
+            $model->image = 'uploads/'.$imageName.'.'.$model->file->extension;
+           
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
             
-            $image = $model->uploadImage();
-
-            if ($model->save()) {
-                // upload only if valid uploaded file instance found
-                if ($image !== false) {
-                    $path = $model->getImageFile();
-                    $image->saveAs($path);
-                }
-                return $this->redirect(['view', 'id'=>$model->id]);
-            } else {
-                // error in saving model
-            }
-        } 
-  
-        else {
+        } else {
             return $this->render('create', [
                 'model' => $model,
             ]);

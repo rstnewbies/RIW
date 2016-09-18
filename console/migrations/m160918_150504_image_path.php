@@ -6,7 +6,7 @@ class m160918_150504_image_path extends Migration
 {
     public function up()
     {
-      $this->addColumn('{{%task}}', 'image', 'string AFTER `score` ', $this->string->notNull()); 
+      $this->execute("ALTER TABLE `task` ADD `image` VARCHAR(255) NOT NULL AFTER `score`;");
     }
 
     public function down()

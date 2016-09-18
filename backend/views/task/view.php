@@ -32,6 +32,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'text:ntext',
             'score',
+             [
+                'label'  => 'image',
+                'attribute'=>'photo',
+                'value' => $model->image,
+                'format' => ['image',['width'=>'300','height'=>'300']],
+            ],
         ],
     ]) ?>
 

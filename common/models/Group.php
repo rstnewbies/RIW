@@ -44,4 +44,8 @@ class Group extends \yii\db\ActiveRecord
             'color' => 'Color',
         ];
     }
+	
+	public function getScore(){
+		return CompleteTask::find()->where(['group_id' => $this->id])->joinWith('task')->sum('task.score');
+	}
 }

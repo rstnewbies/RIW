@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * TaskController implements the CRUD actions for Task model.
@@ -17,6 +18,8 @@ class TaskController extends Controller
     /**
      * @inheritdoc
      */
+    
+    
     public function behaviors()
     {
         return [
@@ -66,7 +69,18 @@ class TaskController extends Controller
         $model = new Task();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            
+            //get the instance of uploaded file;
+            $imageName = $model->id;
+            $model->file = UploadedFile::getInstance($model, 'file');
+            $model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension);
+            
+            // save the path in the db column
+            $model->image = 'uploads/'.$imageName.'.'.$model->file->extension;
+           
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
+            
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -121,4 +135,5 @@ class TaskController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+ 
 }

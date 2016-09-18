@@ -19,7 +19,10 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "kartik-v/yii2-widgets": "dev-master",
-        "russ666/yii2-countdown": "^0.1.0"
+        "russ666/yii2-countdown": "^0.1.0",
+        "kartik-v/yii2-widget-alert": "*",
+        "kartik-v/yii2-widget-fileinput": "@dev"
+		"kartik-v/yii2-widget-fileinput": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

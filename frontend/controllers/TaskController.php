@@ -14,12 +14,29 @@ class TaskController extends Controller
 {
    public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Task::find(),
+        return $this->render('index');
+    }
+    
+   public function actionView($id)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
         ]);
-
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
+    }
+   
+    public function actionDoneTaskView($id)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
         ]);
+    }
+    
+    protected function findModel($id)
+    {
+        if (($model = Task::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
     }
 }

@@ -50,4 +50,8 @@ class Code extends \yii\db\ActiveRecord
     public static function findByCode($code){
         return static::findOne(['code' => $code]);
     }
+    
+    public static function findByTaskId($task_id){
+        return static::findOne(['task_id' => $task_id]);
+    }
 }

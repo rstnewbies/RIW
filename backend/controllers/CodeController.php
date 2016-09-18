@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Code;
+use common\models\User;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -34,7 +35,10 @@ class CodeController extends Controller
      * @return mixed
      */
     public function actionIndex()
-    {
+    {   
+        $groupLeader = User::find()->where('group_id' >= Yii::$app->user->identity->group_id)->orderBy('leader_points DESC')->limit(1);
+        
+        if(0>1){
         $dataProvider = new ActiveDataProvider([
             'query' => Code::find(),
         ]);
@@ -42,6 +46,7 @@ class CodeController extends Controller
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
+        }
     }
 
     /**

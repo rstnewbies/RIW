@@ -22,7 +22,15 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+
+<?php 
+if(!Yii::$app->user->isGuest){
+    echo "<body class='color-".common\models\Group::findOne(Yii::$app->user->identity->group_id)->color."'>";
+}else{
+    echo "<body>";
+}
+?>
+
 <?php $this->beginBody() ?>
 
 <div class="wrap">
@@ -70,7 +78,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; RSTNewbies <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>

@@ -15,14 +15,18 @@ $loggedUser = Yii::$app->user->identity;
 
 $completeTasksIds = CompleteTask::find()->where(['group_id' => $loggedUser->group_id])->select('task_id')->asArray()->all();
 
+$allGroup= new ActiveDataProvider([
+    'query' => Group::find()->where('id>0')->orderBy('score DESC'),
+ ]);
+
 $completedIds = Array();
 foreach($completeTasksIds as $task){
 	$completedIds[] = $task['task_id'];
 }
 
-  $dataProvider = new ActiveDataProvider([
-            'query' => Task::find()->where(['not in', 'id', $completedIds])->limit(5),
-        ]);
+$dataProvider = new ActiveDataProvider([
+    'query' => Task::find()->where(['not in', 'id', $completedIds])->limit(5),
+]);
 ?>
 <div class="site-index">
     <div class="jumbotron">
@@ -82,35 +86,15 @@ foreach($completeTasksIds as $task){
 
 <!-- Score board -->
         <div class="row">
-          <div class = "kafelek time-arena text-6vw">
-                Wyniki
-            <div>
-                <?php
-                $count = 1;
-                $allGroup = Group::find()->where('id>0')->orderBy('score DESC')->all();
-                
-                $count = 1;
-                
-                //draw top 4 group
-                foreach ($allGroup as $group) { 
-                echo "<div class='row '>"; 
-                    echo "<div class = 'col-xs-2'></div>";
-                    echo "<div class = 'col-xs-1'>";
-                    echo "#".$count;
-                    echo "</div>";
-                    echo "<div class = 'col-xs-5'>";
-                    echo $group->name;
-                    echo "</div>";
-                    echo "<div class = 'col-xs-1'>";
-                    echo $group->score;
-                    echo "pkt.";
-                    echo "</div>";
-                echo "</div>";
-                    
-                $count ++;
-                }
-                ?>
-            </div>
+          <div class = "col-xs-12 text-center kafelek task-view">
+              <h2>Wyniki</h2>  
+              <?= GridView::widget([   
+                    'dataProvider' => $allGroup,
+                    'columns' => [
+                        ['class' => 'yii\grid\SerialColumn'],
+                        'name',
+                        'score',
+                        ],]); ?>
           </div>
         </div>
 </div>

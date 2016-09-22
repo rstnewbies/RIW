@@ -19,7 +19,7 @@ foreach($completeTasksIds as $task){
 }
 
 $unCompletedTasks = new ActiveDataProvider([
-            'query' => Task::find()->where(['not in', 'id', $completedIds]),
+            'query' => Task::find()->where(['not in', 'id', $completedIds,])->andWhere(['<>','score','5']),
 		]);
 		
 $completedTasks = new ActiveDataProvider([

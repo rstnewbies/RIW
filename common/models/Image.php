@@ -4,7 +4,9 @@ namespace common\models;
 
 use Yii;
 use common\models\Group;
-
+use common\models\ShowImage;
+use common\models\Task;
+use common\models\CompleteTask;
 /**
  * This is the model class for table "image".
  *
@@ -51,18 +53,59 @@ class Image extends \yii\db\ActiveRecord
     }
     
     public static function getCurrentImage($allScore = 0){
+        
+        //Show image by dashboard
+        $dash_show = ShowImage::find()->where(['show_me_image'=>1])->count();
+        if($dash_show>=1){
+            return '37.png'; 
+        }
+        
+        //premium task
+        $premium = Task::find()->where(['score'=>5])->one();
+        $complete_premium = CompleteTask::find()->where(['task_id'=>$premium->id])->count();
+        if($complete_premium>=2){
+            return '37.png'; 
+        }
+        
         $allScore = (int)$allScore;
         $images = Array(
-            100 => '10.jpg',
-            90 => '9.jpg',
-            80 => '8.jpg',
-            70 => '7.jpg',
-            60 => '6.jpg',
-            50 => '5.jpg',
-            40 => '4.jpg',
-            30 => '3.jpg',
-            20 => '2.jpg',
-            10 => '1.jpg'
+            250 => '36.png',
+            243 => '35.png',
+            236 => '34.png',
+            229 => '33.png',
+            222 => '32.png',
+            215 => '31.png',
+            208 => '30.png',
+            201 => '29.png',
+            194 => '28.png',
+            187 => '27.png',
+            180 => '26.png',
+            173 => '25.png',
+            166 => '24.png',
+            159 => '23.png',
+            152 => '22.png',
+            145 => '21.png',
+            138 => '20.png',
+            131 => '19.png',
+            124 => '18.png',
+            117 => '17.png',
+            110 => '16.png',
+            103 => '15.png',
+            96 => '14.png',
+            89 => '13.png',
+            82 => '12.png',
+            75 => '11.png',
+            68 => '10.png',
+            61 => '9.png',
+            54 => '8.png',
+            47 => '7.png',
+            40 => '6.png',
+            33 => '5.png',
+            26 => '4.png',
+            19 => '3.png',
+            12=> '2.png',
+            5=> '1.png',
+
         );
         
         foreach($images as $score => $image){
@@ -70,6 +113,7 @@ class Image extends \yii\db\ActiveRecord
                 return $image;
             }
         }
-        return '0.jpg';
+        
+        return '0.png';
     }
 }

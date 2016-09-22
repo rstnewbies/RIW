@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
     
-    <?= $form->field($model, 'score')->dropDownList(['1'=>1,'3'=>3]) ?>
+    <?= $form->field($model, 'score')->dropDownList(['1'=>'Zaliczeniowe','3'=>'Zadaniowe', '5'=>'Premium']) ?>
     
     <?= $form->field($model, 'file')->fileInput() ?>
     

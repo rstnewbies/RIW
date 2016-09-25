@@ -31,7 +31,7 @@ $task = new ActiveDataProvider([
             'title',
             'text:ntext',
             'score',
-            
+            'zone',
             [
                 'label'  => 'image',
                 'attribute' => 'photo',

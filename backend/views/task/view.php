@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'text:ntext',
             'score',
+            'zone',
              [
                 'label'  => 'image',
                 'attribute'=>'photo',

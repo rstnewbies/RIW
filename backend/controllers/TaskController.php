@@ -151,4 +151,29 @@ class TaskController extends Controller
         return $this->render('unBonus');
     }
  
+    public function actionWroclaw()
+    {
+        if(\common\models\TaskZoneStatus::find()->where(['id'=>'1'])->one()){
+            $task_zone_status = \common\models\TaskZoneStatus::find()->where(['id'=>'1'])->one();
+        }else{
+            $task_zone_status =  new \common\models\TaskZoneStatus();
+            $task_zone_status->id = 1;
+        }
+        $task_zone_status->status = 'WRO';
+        $task_zone_status->save();
+        return $this->render('wroclaw');
+    }
+    
+    public function actionKatowice()
+    {
+        if(\common\models\TaskZoneStatus::find()->where(['id'=>'1'])->one()){
+            $task_zone_status = \common\models\TaskZoneStatus::find()->where(['id'=>'1'])->one();
+        }else{
+            $task_zone_status =  new \common\models\TaskZoneStatus();
+            $task_zone_status->id = 1;
+        }
+        $task_zone_status->status = 'KAT';
+        $task_zone_status->save();
+        return $this->render('katowice');
+    }
 }

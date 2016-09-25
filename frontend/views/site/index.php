@@ -14,7 +14,7 @@ $this->title = 'RST Compas';
 $loggedUser = Yii::$app->user->identity;
 
 $completeTasksIds = CompleteTask::find()->where(['group_id' => $loggedUser->group_id])->select('task_id')->asArray()->all();
-
+$task_zone = \common\models\TaskZoneStatus::find()->where(['id'=>'1'])->one()->status;
 $allGroup= new ActiveDataProvider([
     'query' => Group::find()->where('id>0')->orderBy('score DESC'),
  ]);
@@ -25,7 +25,7 @@ foreach($completeTasksIds as $task){
 }
 
 $dataProvider = new ActiveDataProvider([
-    'query' => Task::find()->where(['not in', 'id', $completedIds])->andWhere(['<>','score','5'])->limit(5),
+    'query' => Task::find()->where(['not in', 'id', $completedIds])->andWhere(['<>','score','5'])->andWhere(['=','zone',$task_zone])->limit(5),
 ]);
 ?>
 <div class="site-index">
@@ -122,22 +122,21 @@ $dataProvider = new ActiveDataProvider([
 
 <!-- Premium task alert -->
     <?php
-    $premium_task_id = Task::find()->where(['score'=>5])->one()->id;
-    $premium_status = \common\models\PremiumTaskStatus::find()->where(['id'=>1])->count();
-    if($premium_status>=1){
-         Modal::begin([
-            'header'=>'Bonusowe zadanie zostało dodane.',
-            'id'=>'modal',
-            'size'=>'modal-lg',
-        ]);
-         echo"<h1>";
-         echo Html::a("ZOBACZ BONUSOWE ZADANIE", ['task/view','id'=>$premium_task_id], ['class' => '']);        
-         echo"</h1>";
-      
-         
-         Modal::end(); 
+    if(Task::find()->where(['score'=>5])->one()){
+        $premium_task_id = Task::find()->where(['score'=>5])->one()->id;
+        $premium_status = \common\models\PremiumTaskStatus::find()->where(['id'=>1])->count();
+        if($premium_status>=1){
+            Modal::begin([
+                'header'=>'Bonusowe zadanie zostało dodane.',
+                'id'=>'modal',
+                'size'=>'modal-lg',
+            ]);
+            echo"<h1>";
+            echo Html::a("ZOBACZ BONUSOWE ZADANIE", ['task/view','id'=>$premium_task_id], ['class' => '']);        
+            echo"</h1>"; 
+            Modal::end(); 
+        }
     }
-    
     ?>
 
 </div>

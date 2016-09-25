@@ -12,6 +12,7 @@ use \common\models\Group;
 
 $this->title = 'Tasks';
 $group = Group::find()->where(['id' => Yii::$app->user->identity->group_id])->one();
+$task_zone = \common\models\TaskZoneStatus::find()->where(['id'=>'1'])->one()->status;
 $completeTasksIds = CompleteTask::find()->where(['group_id' => $group->id])->select('task_id')->asArray()->all();
 $completedIds = Array();
 foreach($completeTasksIds as $task){
@@ -19,7 +20,7 @@ foreach($completeTasksIds as $task){
 }
 
 $unCompletedTasks = new ActiveDataProvider([
-            'query' => Task::find()->where(['not in', 'id', $completedIds,])->andWhere(['<>','score','5']),
+            'query' => Task::find()->where(['not in', 'id', $completedIds,])->andWhere(['<>','score','5'])->andWhere(['=','zone',$task_zone]),
 		]);
 		
 $completedTasks = new ActiveDataProvider([

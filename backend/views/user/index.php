@@ -27,8 +27,6 @@ $this->params['breadcrumbs'][] = $this->title;
             //'password_hash',
             //'password_reset_token',
             ['attribute' => 'username','header' => 'Email(login)','format' => 'email',],
-            ['header' => 'Password',
-             'value' => function($data) {return $data->getPassword();}],
             // 'status',
             // 'created_at',
             // 'updated_at',

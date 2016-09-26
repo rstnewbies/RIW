@@ -57,7 +57,7 @@ class Image extends \yii\db\ActiveRecord
         //Show image by dashboard
         $dash_show = ShowImage::find()->where(['show_me_image'=>1])->count();
         if($dash_show>=1){
-            return '37.png'; 
+            return '4Oa6NgI7CnFvjI9gvaZCJH35C.png'; 
         }
         
         //premium task

@@ -3,13 +3,14 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 $this->title = 'Change Password';
-$this->params['breadcrumbs'][] = $this->title;
+echo Html::a("Powrót do Panelu", ["site/index"],['class'=>'btn btn-lg task-btn dashboard-btn']);
 ?>
 
-<div class="site-changepassword">
+<br>
+<br>
+<br>
+<div class="site-changepassword resetPassword ">
     <h1><?= Html::encode($this->title) ?></h1>
-   
-    <p>Please fill out the following fields to change password :</p>
    
     <?php $form = ActiveForm::begin([
         'id'=>'changepassword-form',

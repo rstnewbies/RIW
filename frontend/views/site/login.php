@@ -12,9 +12,6 @@ $this->title = 'RSTKompas';
 <div class="site-login">
     <div class="jumbotron">
         <img src="kompas_logo.png" class="img-responsive center-block"/>
-
-    <!--<p>(OPIS)Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua.(OPIS) </p>-->
     </div>
     <div class="col-lg-3"></div>
     <div class="col-lg-6 bot-margin">

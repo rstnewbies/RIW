@@ -33,9 +33,6 @@ use common\models\Group;
         <div class="col-xs-6">
             <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
         </div>
-        <div class="col-xs-6" style="text-align: right;">
-            <?= Html::a('Password Reset',['user/reset'],['class' => 'btn btn-danger']) ?>
-        </div>
     </div>
         
     

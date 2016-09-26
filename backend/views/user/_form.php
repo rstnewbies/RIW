@@ -29,10 +29,16 @@ use common\models\Group;
     Group::find()->select(['name'])->indexBy('id')->column(),
     ['prompt'=>'Wybierz grupę'])?>
 
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    <div class="form-group row">
+        <div class="col-xs-6">
+            <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        </div>
+        <div class="col-xs-6" style="text-align: right;">
+            <?= Html::a('Password Reset',['user/reset'],['class' => 'btn btn-danger']) ?>
+        </div>
     </div>
-
+        
+    
     <?php ActiveForm::end(); ?>
 <?= $form->errorSummary($model); ?>
 </div>

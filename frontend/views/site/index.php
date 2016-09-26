@@ -10,7 +10,7 @@ use yii\data\ActiveDataProvider;
 use yii\helpers\Url;
 use common\models\Group;
 
-$this->title = 'RST Compas';
+$this->title = 'RST Kompas';
 $loggedUser = Yii::$app->user->identity;
 
 $completeTasksIds = CompleteTask::find()->where(['group_id' => $loggedUser->group_id])->select('task_id')->asArray()->all();

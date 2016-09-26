@@ -64,47 +64,47 @@ class Image extends \yii\db\ActiveRecord
         $premium = Task::find()->where(['score'=>5])->one();
         $complete_premium = CompleteTask::find()->where(['task_id'=>$premium->id])->count();
         if($complete_premium>=2){
-            return '37.png'; 
+            return '4Oa6NgI7CnFvjI9gvaZCJH35C.png'; 
         }
         
         $allScore = (int)$allScore;
         $images = Array(
-            250 => '36.png',
-            243 => '35.png',
-            236 => '34.png',
-            229 => '33.png',
-            222 => '32.png',
-            215 => '31.png',
-            208 => '30.png',
-            201 => '29.png',
-            194 => '28.png',
-            187 => '27.png',
-            180 => '26.png',
-            173 => '25.png',
-            166 => '24.png',
-            159 => '23.png',
-            152 => '22.png',
-            145 => '21.png',
-            138 => '20.png',
-            131 => '19.png',
-            124 => '18.png',
-            117 => '17.png',
-            110 => '16.png',
-            103 => '15.png',
-            96 => '14.png',
-            89 => '13.png',
-            82 => '12.png',
-            75 => '11.png',
-            68 => '10.png',
-            61 => '9.png',
-            54 => '8.png',
-            47 => '7.png',
-            40 => '6.png',
-            33 => '5.png',
-            26 => '4.png',
-            19 => '3.png',
-            12=> '2.png',
-            5=> '1.png',
+            250 => 'G10M6BgYeOS1qKkPmPHGodrTz.png',
+            243 => 'f3fDAUPDnoeDfYXhio50LbX1t.png',
+            236 => '7ui2z3MGpYVsxP0d1AuL3SAJJ.png',
+            229 => 'C3rbE62FnntqGp3cLl3sBYDme.png',
+            222 => 'sAnsTnMgbAxvEGOqsTJMbFkR6.png',
+            215 => 'SepC5MbdM88qHNczFQNLvgUMj.png',
+            208 => 'j1d8NoFlznnCJUXzDxrBnTuf4.png',
+            201 => 'QPMNMj1CARN1JEJlW1KoV2F7y.png',
+            194 => 'qrib7deLQlaRWw3O33yfTXgcc.png',
+            187 => '7NyAJ0RpbgpC2IBvCipwg3C32.png',
+            180 => 'QU9NlbqEesgP0BFsL1mR9cguP.png',
+            173 => 'fQZJlooINBCgQL6YzHycvrn17.png',
+            166 => 'yLe2myhU7BQx8zRoGEAp6vtam.png',
+            159 => 't0P14ShcNdGUMhZdyVeRax7tx.png',
+            152 => 'wSsosHRxOuCvUikPpeEF63aA9.png',
+            145 => '4ugEHjKdbM5wi1KTBPxpLZ15A.png',
+            138 => 'pcHQJ5IaS7PLzaXYG6rjmmKDH.png',
+            131 => 'HW69FLrioZ5Eh5EmW4eVqb4NX.png',
+            124 => 'zKHMWQ1A49c1VzQxBU0lkZCsn.png',
+            117 => 'xDIfZMMszNTBMvhtOMQv1Co5I.png',
+            110 => 'iTFG4DyxlA3cNyZxavXp2DCvT.png',
+            103 => '4cWHvq8E1wqTiCW9Plt1OklbM.png',
+            96 => 'bj7hFWx7DgyMC34MRSXNtb0nA.png',
+            89 => 'OB0by3hZ2NtJ4sl10lpUNB0j5.png',
+            82 => 'MmAIFiVfoocb3anG48wttKg8O.png',
+            75 => '0kmodUBA2231gxGLAHTxBc3Ao.png',
+            68 => 'j3WQOnNkHFOyEb9vLqlqubETk.png',
+            61 => 'hFN2CnR77GoMaGkHvMohrunD4.png',
+            54 => 'Jl99FIVrOBcrYJKXLGeZUD9G3.png',
+            47 => 'HeUS9u6Qauoh1Z7rvOHwHaXw6.png',
+            40 => 'Y5YPyy0Bs4I2IrZ360Mnn83dF.png',
+            33 => 'B1Mpk1YHoXH8T3pG10d7J0pu5.png',
+            26 => 'JEPZaNYZPYOqw44Wydzv9Bidc.png',
+            19 => 'WWK2gnrHUztDqDOU59O32Dll3.png',
+            12=> 'tPXbh1AFDrvNO0sXIbiOMY62B.png',
+            5=> '9m7SDytXyodQ9YvCSZXKy7l3Q.png',
 
         );
         
@@ -114,6 +114,6 @@ class Image extends \yii\db\ActiveRecord
             }
         }
         
-        return '0.png';
+        return 'b2zFCtN33BihP0J7HG04PZTXJ.png';
     }
 }

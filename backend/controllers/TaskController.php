@@ -69,15 +69,14 @@ class TaskController extends Controller
         $model = new Task();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            
             //get the instance of uploaded file;
             $imageName = $model->id;
             $model->file = UploadedFile::getInstance($model, 'file');
+            if($model->file!=null){
             $model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension);
-            
             // save the path in the db column
             $model->image = 'uploads/'.$imageName.'.'.$model->file->extension;
-           
+            }
             $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
             
@@ -135,5 +134,46 @@ class TaskController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+    
+    public function actionBonus()
+    {
+        $premium_show = new \common\models\PremiumTaskStatus();
+        $premium_show->id = 1;
+        $premium_show->status = 1;
+        $premium_show->save();
+        return $this->render('bonus');
+    }
+    
+    public function actionUnBonus()
+    {
+        $premium_show = \common\models\PremiumTaskStatus::find()->where(['id'=>1])->one();
+        $premium_show->delete();
+        return $this->render('unBonus');
+    }
  
+    public function actionWroclaw()
+    {
+        if(\common\models\TaskZoneStatus::find()->where(['id'=>'1'])->one()){
+            $task_zone_status = \common\models\TaskZoneStatus::find()->where(['id'=>'1'])->one();
+        }else{
+            $task_zone_status =  new \common\models\TaskZoneStatus();
+            $task_zone_status->id = 1;
+        }
+        $task_zone_status->status = 'WRO';
+        $task_zone_status->save();
+        return $this->render('wroclaw');
+    }
+    
+    public function actionKatowice()
+    {
+        if(\common\models\TaskZoneStatus::find()->where(['id'=>'1'])->one()){
+            $task_zone_status = \common\models\TaskZoneStatus::find()->where(['id'=>'1'])->one();
+        }else{
+            $task_zone_status =  new \common\models\TaskZoneStatus();
+            $task_zone_status->id = 1;
+        }
+        $task_zone_status->status = 'KAT';
+        $task_zone_status->save();
+        return $this->render('katowice');
+    }
 }

@@ -5,19 +5,7 @@ use common\models\Group;
 use common\models\ShowImage;
 
 $this->title = 'Obrazek';
-$allScore;
-$ShowImage = ShowImage::find()->select('show_me_image')->asArray()->all();
-$values = Array();
-
-foreach ($ShowImage as $show){
-    $values[] = $show['show_me_image'];
-}
-if($values == null){
-    $allScore = Group::find()->select('score')->sum('score') ;
-}else {
-    $allScore = 100;
-}
-
+$allScore = Group::find()->select('score')->sum('score') ;
 $currentImagePath = Image::getCurrentImage($allScore);
 ?>
 

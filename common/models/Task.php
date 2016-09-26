@@ -38,6 +38,8 @@ class Task extends \yii\db\ActiveRecord
             [['score'], 'integer'],
             [['file'], 'file'],
             [['image'], 'string', 'max' => 255],
+            [['zone'],'string', 'max' => 255],
+            
             
         ];
     }
@@ -53,6 +55,7 @@ class Task extends \yii\db\ActiveRecord
             'text' => 'Text',
             'score' => 'Score',
             'file' => 'Image',
+            'zone' => 'Zone',
         ];
     }
     

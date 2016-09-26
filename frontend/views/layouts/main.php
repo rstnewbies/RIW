@@ -50,6 +50,7 @@ if(!Yii::$app->user->isGuest){
     if (!Yii::$app->user->isGuest) {
          $menuItems = [
             ['label' => 'Home', 'url' => Yii::$app->homeUrl],
+             ['label' => 'Reset Password', 'url' => ['site/changepassword']],
     ];
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')

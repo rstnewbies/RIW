@@ -35,7 +35,7 @@ class SiteController extends Controller
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout','changepassword'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -250,4 +250,45 @@ class SiteController extends Controller
       public function actionQrskaner(){
         return $this->render('qrskaner');
     }
-}
+    
+      public function actionChangepassword(){
+        $model = new \app\models\PasswordForm();
+        $modeluser = User::find()->where([
+            'username'=>Yii::$app->user->identity->username
+        ])->one();
+     
+        if($model->load(Yii::$app->request->post())){
+            if($model->validate()){
+                try{
+                    $modeluser->password = $_POST['PasswordForm']['newpass'];
+                    if($modeluser->save()){
+                        Yii::$app->getSession()->setFlash(
+                            'success','Password changed'
+                        );
+                        return $this->redirect(['index']);
+                    }else{
+                        Yii::$app->getSession()->setFlash(
+                            'error','Password not changed'
+                        );
+                        return $this->redirect(['index']);
+                    }
+                }catch(Exception $e){
+                    Yii::$app->getSession()->setFlash(
+                        'error',"{$e->getMessage()}"
+                    );
+                    return $this->render('changepassword',[
+                        'model'=>$model
+                    ]);
+                }
+            }else{
+                return $this->render('changepassword',[
+                    'model'=>$model
+                ]);
+            }
+        }else{
+            return $this->render('changepassword',[
+                'model'=>$model
+            ]);
+        }
+    }
+} 

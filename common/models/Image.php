@@ -61,10 +61,12 @@ class Image extends \yii\db\ActiveRecord
         }
         
         //premium task
+        if(Task::find()->where(['score'=>5])->one()){
         $premium = Task::find()->where(['score'=>5])->one();
         $complete_premium = CompleteTask::find()->where(['task_id'=>$premium->id])->count();
         if($complete_premium>=2){
             return '4Oa6NgI7CnFvjI9gvaZCJH35C.png'; 
+        }
         }
         
         $allScore = (int)$allScore;

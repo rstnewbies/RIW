@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label'  => 'image',
                 'attribute'=>'photo',
                 'value' => $model->image,
-                'format' => ['image',['width'=>'300','height'=>'300']],
+                'format' => ['image',['class'=>'img-responsive']],
             ],
         ],
     ]) ?>

@@ -20,12 +20,15 @@ foreach($completeTasksIds as $task){
 }
 
 $unCompletedTasks = new ActiveDataProvider([
-            'query' => Task::find()->where(['not in', 'id', $completedIds,])->andWhere(['<>','score','5'])->andWhere(['=','zone',$task_zone]),
-		]);
+        'query' => Task::find()
+        ->where(['not in', 'id', $completedIds,])
+        ->andWhere(['<>','score','5'])
+        ->andWhere(['=','zone',$task_zone]),
+		'sort'=>false]);
 		
 $completedTasks = new ActiveDataProvider([
 	'query' => Task::find()->where(['in', 'id', $completedIds]),
-		]);
+		'sort'=>false]);
 
 ?>
 
@@ -39,20 +42,20 @@ $completedTasks = new ActiveDataProvider([
 		//I create two list becouse PO tell to not show points per task in uncomplete task, but score must be show in complete task
         'dataProvider' => $unCompletedTasks,
         'columns' => [    
-            'title',
-            'text:ntext',
             [   
-                'label' => 'Link do zadania',
+                'label' => 'Title',
                 'format' => 'raw',
-                'value' => function($dataProvider){
-                return Html::a("Link do zadania", ['task/view', 'id' => $dataProvider->id]);
+                'value' => function($model){
+                return Html::a($model->title, ['task/view', 'id' => $model->id]);
                 },
             ],
+            'text:ntext',
+            
             [
                 'label'  => 'image',
                 'attribute' => 'photo',
                 'value' => function($dataProvider){
-                return 'http://panel.kompas.rst.com.pl/'.Task::getImagePath($dataProvider->id)->image;},
+                return Yii::$app->params['backendDomain']."/".Task::getImagePath($dataProvider->id)->image;},
                 'format' => ['image',['width'=>'50','height'=>'50']],
             ],
         ],
@@ -71,19 +74,12 @@ $completedTasks = new ActiveDataProvider([
             'title',
             'text:ntext',
             'score',
-            [   
-                'label' => 'Link do zadania',
-                'format' => 'raw',
-                'value' => function($dataProvider){
-                return Html::a("Link do zadania", ['task/view', 'id' => $dataProvider->id]);
-                },
-            ],
-                        [
+            [
                 'label'  => 'image',
                 'attribute' => 'photo',
                 'value' => function($dataProvider){
                 return 'http://panel.kompas.rst.com.pl/'.Task::getImagePath($dataProvider->id)->image;},
-                'format' => ['image',['width'=>'50','height'=>'50']],
+                'format' => ['image',['class'=>'img-responsive']],
             ],
         ],
     ]); ?>

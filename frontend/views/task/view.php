@@ -24,8 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
              [
                 'label'  => 'image',
                 'attribute'=>'photo',
-                'value' =>  'http://panel.kompas.rst.com.pl/'.$model->image,
-                'format' => ['image',['width'=>'300','height'=>'300']],
+                'value' =>  Yii::$app->params['backendDomain'].$model->image,
+                'format' => ['image',['class'=>'img-responsive']],
             ],
         ],
     ]) ?>

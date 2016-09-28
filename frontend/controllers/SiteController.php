@@ -247,9 +247,6 @@ class SiteController extends Controller
      public function actionTasks(){
         return $this->render('tasks');
     }
-      public function actionQrskaner(){
-        return $this->render('qrskaner');
-    }
     
       public function actionChangepassword(){
         $model = new \app\models\PasswordForm();

@@ -131,8 +131,9 @@ $dataProvider = new ActiveDataProvider([
                 'id'=>'modal',
                 'size'=>'modal-lg',
             ]);
-            echo"<h1>";
-            echo Html::a("ZOBACZ BONUSOWE ZADANIE", ['task/view','id'=>$premium_task_id], ['class' => '']);        
+            echo"<h1 class='jumbotron'>";
+            echo"W twojej okolicy pojawiło się epickie specjalne zadanie <br>";
+            echo Html::a("ZOBACZ JE", ['task/view','id'=>$premium_task_id], ['class' => '']);        
             echo"</h1>"; 
             Modal::end(); 
         }

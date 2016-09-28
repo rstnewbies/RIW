@@ -137,17 +137,21 @@ class TaskController extends Controller
     
     public function actionBonus()
     {
+        if( !\common\models\PremiumTaskStatus::find()->where(['id'=>1])->one()){
         $premium_show = new \common\models\PremiumTaskStatus();
         $premium_show->id = 1;
         $premium_show->status = 1;
         $premium_show->save();
+        }
         return $this->render('bonus');
     }
     
     public function actionUnBonus()
     {
+        if(\common\models\PremiumTaskStatus::find()->where(['id'=>1])->one()){
         $premium_show = \common\models\PremiumTaskStatus::find()->where(['id'=>1])->one();
         $premium_show->delete();
+        }
         return $this->render('unBonus');
     }
  

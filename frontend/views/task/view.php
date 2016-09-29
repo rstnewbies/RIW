@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\helpers\Url;
+use common\models\Task;
 
 
 /* @var $this yii\web\View */
@@ -25,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
              [
                 'label'  => 'image',
                 'attribute'=>'photo',
-                'value' =>  $value,
+                'value' =>  Yii::$app->params['backendDomain']."/".Task::getImagePath($model->id)->image,
                 'format' => ['image',['class'=>'img-responsive']],
             ],
         ],

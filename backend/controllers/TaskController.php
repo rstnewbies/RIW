@@ -100,6 +100,16 @@ class TaskController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $imageName = $model->id;
+            $model->file = UploadedFile::getInstance($model, 'file');
+            if($model->file!=null){
+            $model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension);
+            // save the path in the db column
+            $model->image = 'uploads/'.$imageName.'.'.$model->file->extension;
+            }else{
+              $model->image = 'NONE.jpg';  
+            }
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [

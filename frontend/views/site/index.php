@@ -23,10 +23,20 @@ $completedIds = Array();
 foreach($completeTasksIds as $task){
 	$completedIds[] = $task['task_id'];
 }
-
+$task_status = \common\models\TaskStatus::find()->where(['id'=>'1'])->one();
+if($task_status->status === 'SHOW'){
 $dataProvider = new ActiveDataProvider([
-    'query' => Task::find()->where(['not in', 'id', $completedIds])->andWhere(['<>','score','5'])->andWhere(['=','zone',$task_zone])->limit(5),
-]);
+    'query' => Task::find()->where(['not in', 'id', $completedIds])
+        ->andWhere(['<>','score','5'])
+        ->andWhere(['=','zone',$task_zone])
+        ->limit(5),]);
+}else{
+  $dataProvider = new ActiveDataProvider([
+    'query' => Task::find()->where(['not in', 'id', $completedIds])
+        ->andWhere(['<>','score','1,3,5'])
+        ->andWhere(['=','zone',$task_zone])
+        ->limit(5),]);  
+}
 ?>
 <div class="site-index">
     <div class="jumbotron">
@@ -126,8 +136,8 @@ $dataProvider = new ActiveDataProvider([
     <?php
     if(Task::find()->where(['score'=>5])->one()){
         $premium_task_id = Task::find()->where(['score'=>5])->one()->id;
-        $premium_status = \common\models\PremiumTaskStatus::find()->where(['id'=>1])->count();
-        if($premium_status>=1){
+        $premium_status = \common\models\PremiumTaskStatus::find()->where(['id'=>1])->one();
+        if($premium_status->status==='SHOW'){
             Modal::begin([
                 'header'=>'Bonusowe zadanie zostało dodane.',
                 'id'=>'modal',

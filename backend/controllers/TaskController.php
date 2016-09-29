@@ -149,21 +149,27 @@ class TaskController extends Controller
     
     public function actionBonus()
     {
-        if( !\common\models\PremiumTaskStatus::find()->where(['id'=>1])->one()){
-        $premium_show = new \common\models\PremiumTaskStatus();
-        $premium_show->id = 1;
-        $premium_show->status = 1;
-        $premium_show->save();
+        if(\common\models\PremiumTaskStatus::find()->where(['id'=>'1'])->one()){
+            $premium_task_status = \common\models\PremiumTaskStatus::find()->where(['id'=>'1'])->one();
+        }else{
+            $premium_task_status =  new \common\models\PremiumTaskStatus();
+            $premium_task_status->id = 1;
         }
+        $premium_task_status->status = 'SHOW';
+        $premium_task_status->save();
         return $this->render('bonus');
     }
     
     public function actionUnBonus()
     {
-        if(\common\models\PremiumTaskStatus::find()->where(['id'=>1])->one()){
-        $premium_show = \common\models\PremiumTaskStatus::find()->where(['id'=>1])->one();
-        $premium_show->delete();
+        if(\common\models\PremiumTaskStatus::find()->where(['id'=>'1'])->one()){
+            $premium_task_status = \common\models\PremiumTaskStatus::find()->where(['id'=>'1'])->one();
+        }else{
+            $premium_task_status =  new \common\models\PremiumTaskStatus();
+            $premium_task_status->id = 1;
         }
+        $premium_task_status->status = 'HIDE';
+        $premium_task_status->save();
         return $this->render('unBonus');
     }
  
@@ -191,5 +197,31 @@ class TaskController extends Controller
         $task_zone_status->status = 'KAT';
         $task_zone_status->save();
         return $this->render('katowice');
+    }
+    
+        public function actionShow()
+    {
+        if(\common\models\TaskStatus::find()->where(['id'=>'1'])->one()){
+            $task_status = \common\models\TaskStatus::find()->where(['id'=>'1'])->one();
+        }else{
+            $task_status =  new \common\models\TaskStatus();
+            $task_status->id = 1;
+        }
+        $task_status->status = 'SHOW';
+        $task_status->save();
+        return $this->render('show');
+    }
+    
+        public function actionHide()
+    {
+        if(\common\models\TaskStatus::find()->where(['id'=>'1'])->one()){
+            $task_status = \common\models\TaskStatus::find()->where(['id'=>'1'])->one();
+        }else{
+            $task_status =  new \common\models\TaskStatus();
+            $task_status->id = 1;
+        }
+        $task_status->status = 'HIDE';
+        $task_status->save();
+        return $this->render('hide');
     }
 }

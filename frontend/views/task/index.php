@@ -19,12 +19,23 @@ foreach($completeTasksIds as $task){
 	$completedIds[] = $task['task_id'];
 }
 
-$unCompletedTasks = new ActiveDataProvider([
+$task_status = \common\models\TaskStatus::find()->where(['id'=>'1'])->one();
+if($task_status === 'SHOW'){
+    $unCompletedTasks = new ActiveDataProvider([
         'query' => Task::find()
         ->where(['not in', 'id', $completedIds,])
         ->andWhere(['<>','score','5'])
         ->andWhere(['=','zone',$task_zone]),
 		'sort'=>false]);
+}else{
+    $unCompletedTasks = new ActiveDataProvider([
+        'query' => Task::find()
+        ->where(['not in', 'id', $completedIds,])
+        ->andWhere(['<>','score','1,3,5'])
+        ->andWhere(['=','zone',$task_zone]),
+		'sort'=>false]);
+}
+
 		
 $completedTasks = new ActiveDataProvider([
 	'query' => Task::find()->where(['in', 'id', $completedIds]),

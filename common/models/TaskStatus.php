@@ -5,19 +5,19 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "premium_task_status".
+ * This is the model class for table "task_status".
  *
  * @property integer $id
  * @property string $status
  */
-class PremiumTaskStatus extends \yii\db\ActiveRecord
+class TaskStatus extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'premium_task_status';
+        return 'task_status';
     }
 
     /**
@@ -26,7 +26,7 @@ class PremiumTaskStatus extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['status'], 'string', 'max' => 6],
+            [['status'], 'string', 'max' => 255],
         ];
     }
 

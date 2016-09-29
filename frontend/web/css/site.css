@@ -385,6 +385,11 @@ a.desc:after {
   margin: 0 auto;
   font-size: 8vw;
   left: 15px;
+  margin-bottom: 3vh;
+}
+
+.info-btn-text{
+    color:#6600ff;
 }
 
 .zadania-btn{
@@ -406,7 +411,12 @@ a.desc:after {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
   font-size: 8vw;
+  margin-bottom: 3vh;
   text-align: center;
+}
+
+.obraz-btn-text{
+  color: #ff9900;
 }
 
 .qr-btn{
@@ -416,6 +426,7 @@ a.desc:after {
   color:#01632a;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
+  margin-bottom: 5vh;
   font-size: 8vw;
 }
 

@@ -47,18 +47,22 @@ $dataProvider = new ActiveDataProvider([
         </div>
         </div>
         
-<!-- Button -->        
+<!-- Button Image and Info--> 
         <div class="row">
-            <div class ="kafelek col-xs-12">
-             <a href = "<?php  echo Url::toRoute('image/index')?>" class= "col-xs-4 text-center obraz-btn " >    
-                <t class = "obraz-text">Obraz</t>
-             </a>   
-            <a href = "<?php  echo Url::toRoute('code/reader')?>" class= "col-xs-4 text-center qr-btn" >
-                <t class = "text-6vw">Kody</t>
-            </a>
-            <a href = "<?php echo Url::toRoute('site/info')?>" class="col-xs-4 text-center info-btn">
-                <t class = "text-6vw">Info</t>
-            </a>
+            <div class ="col-xs-12">
+            <div class="col-xs-6 text-center kafelek obraz-btn ">
+                <?php echo Html::a("Obraz", ["image/index"],['class'=>'text-center obraz-btn-text']); ?> 
+            </div>
+            <div class="col-xs-6 text-center kafelek info-btn ">
+                <?php echo Html::a("Info", ["site/info"],['class'=>'text-center info-btn-text' ]); ?> 
+            </div>
+        </div>
+        </div>
+
+<!-- Button show Code -->
+        <div class="row">
+            <div class="col-lg-12 text-center kafelek qr-btn ">
+                <?php echo Html::a("Wpisz Kod", ["code/reader"],['class'=>'text-center']); ?> 
             </div>
         </div>
 

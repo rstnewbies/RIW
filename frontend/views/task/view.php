@@ -11,6 +11,7 @@ use yii\helpers\Url;
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Tasks', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="task-view">
 
@@ -24,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
              [
                 'label'  => 'image',
                 'attribute'=>'photo',
-                'value' =>  Yii::$app->params['backendDomain'].$model->image,
+                'value' =>  $value,
                 'format' => ['image',['class'=>'img-responsive']],
             ],
         ],

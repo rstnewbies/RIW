@@ -76,6 +76,8 @@ class TaskController extends Controller
             $model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension);
             // save the path in the db column
             $model->image = 'uploads/'.$imageName.'.'.$model->file->extension;
+            }else{
+              $model->image = 'NONE.jpg';  
             }
             $model->save();
             return $this->redirect(['view', 'id' => $model->id]);

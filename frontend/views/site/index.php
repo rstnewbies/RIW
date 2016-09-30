@@ -33,7 +33,7 @@ $dataProvider = new ActiveDataProvider([
 }else{
   $dataProvider = new ActiveDataProvider([
     'query' => Task::find()->where(['not in', 'id', $completedIds])
-        ->andWhere(['<>','score','1,3,5'])
+        ->andWhere(['=','score','0'])
         ->andWhere(['=','zone',$task_zone])
         ->limit(5),]);  
 }

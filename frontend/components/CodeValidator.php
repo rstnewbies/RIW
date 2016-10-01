@@ -40,6 +40,7 @@ class CodeValidator extends Validator
                 $complete_task = new CompleteTask();
                 $complete_task->group_id = $group->id;
                 $complete_task->task_id = $code->task_id;
+                $complete_task->time = date('D H:i:s');
                 $complete_task->save() ? $complete_task : null;
                 
                 $group->score = $group->score + $task->score;

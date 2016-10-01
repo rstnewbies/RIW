@@ -29,6 +29,7 @@ class CompleteTask extends \yii\db\ActiveRecord
         return [
             [['group_id', 'task_id'], 'required'],
             [['group_id', 'task_id'], 'integer'],
+            [['time'],'string'],
         ];
     }
 
@@ -41,6 +42,7 @@ class CompleteTask extends \yii\db\ActiveRecord
             'id' => 'ID',
             'group_id' => 'Group ID',
             'task_id' => 'Task ID',
+            'time' => 'Time',
         ];
     }
     

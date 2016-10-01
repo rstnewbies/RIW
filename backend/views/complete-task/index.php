@@ -21,10 +21,26 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'group_id',
-            'task_id',
-
+            //'id',
+            [
+            'attribute' => 'group_id',
+            'enableSorting'=>true,
+            'format' => 'raw',
+            'header' => 'Group',
+            'value' => function($data) {
+            return \common\models\Group::find()->where(['id'=>$data->group_id])->one()->name;
+            }
+            ],
+                        [
+            'attribute' => 'task_id',
+            'enableSorting'=>true,
+            'format' => 'raw',
+            'header' => 'Task',
+            'value' => function($data) {
+            return \common\models\Task::find()->where(['id'=>$data->task_id])->one()->title;
+            }
+            ],
+            'time',
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

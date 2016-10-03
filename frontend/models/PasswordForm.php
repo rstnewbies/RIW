@@ -22,8 +22,7 @@
             $user = User::find()->where([
                 'username'=>Yii::$app->user->identity->username
             ])->one();
-            $password = $user->password;
-            if($user->validatePassword($this->oldpass)){
+            if(!$user->validatePassword($this->oldpass)){
                 $this->addError($attribute,'Old password is incorrect');
             }
         }

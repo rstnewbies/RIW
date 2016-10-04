@@ -20,46 +20,56 @@ $friendlyUsers = User::find()->where(['in', 'group_id', $loggedUser])->orderBy('
         <t class = "inf-text"><?= Html::encode($this->title) ?></t>
     </div>
     </div>
-    <br>
-    <br>
+
+     <div class ="panel panel-info ">
+    <div class="col-lg-12 panel-heading">
+        „Projekt 18”
+    </div>
+    <div class ="panel-body">
+        Witamy wszystkich śmiałków w specjalnie przygotowanym dla Was programie <b>„Projekt 18”</b>, który został wsparty mobilną aplikacją „RST Kopmpas”.<br>
+       Wspólnie zaczynamy przygodową grę miejską, która będzie rozgrywana dwu etapowo w dwóch różnych miastach o łącznym czasie gry ponad 24 godziny.<br>
+       Proponuje już zacząć ćwiczyć przysiady i rozciągać mięsnie nóg. <br><br>
+
+       <b>Start: 07.10.2016 Piątek godzina 15.15 </b>– z pod biura RST Wrocław (Grupa Świdnica wyjazd 14.00 z pod Biura) Prosimy o punktualność spóźnialskich nie zabieramy.
+        </div>
+    </div>
+    
+    <div class ="panel panel-info ">
+    <div class="col-lg-12 panel-heading">
+        Jak się przygotować?
+    </div>
+    <div class ="panel-body">
+        W zależności od warunków – trudno przewidzieć uroki tegorocznej jesieni ( z pewnością będzie lało) ale zabieramy:<br>
+        <b>§</b> Wygodne buty <br>
+        <b>§</b> Spodnie i kurtka nieprzemakalna (prognoza na deszcz)<br>
+        <b>§</b> Plecak podręczny (rzeczy na zmianę)<br>
+        <b>§</b> Telefony z aktywną aplikacją „RST Kompas”<br>
+        <b>§</b> „Power Banki” dodatkowe ładowanie do telefonu (jeżeli ktoś ma)<br>
+        <b>§</b> Dużo dobrego humoru i jeszcze więcej pozytywnej energii<br>
+        <b>§</b> Zabieramy też ze sobą dystans do wszystkiego i wszystkich <br>
+       </div>
+    </div>
+    
     <div class ="panel panel-info ">
     <div class="col-lg-12 panel-heading">
         Dekalog wyjazdu
     </div>
     <div class ="panel-body">
-       <t>
-                -Opis wyjazdu*
-                <br>
-                -Opis wyjazdu*
-                <br>
-                -Opis wyjazdu*
-                <br>
-                -Opis wyjazdu*
-                <br>
-                -Opis wyjazdu*
-                <br>
-                -Opis wyjazdu*
-                <br>
-                -Opis wyjazdu*
-             <br>
-            </t>
+       <ol>
+            <li> Miej uśmiech na twarzy w każdym momencie</li>
+            <li> Bądź przygotowany na wszystko w każdej sytuacji </li>
+            <li> Nie bluźnij na drużynę przeciwną, </li>
+            <li> Nie bluźnij na pogodę,</li>
+            <li> Wspieraj słabszych w swojej drużynie</li>
+            <li> Dąż do celu wszelkimi twórczymi, ale uczciwymi  drogami</li>
+            <li> Dobrze się baw i zarażaj dobrą zabawą innych</li>
+            <li> Działaj kreatywnie i szanuj pomysłowość pozostałych</li>
+            <li> Nie poddawaj się , nawet gdy będzie naprawdę ciężko</li>
+            <li> Działaj na 100 %</li>
+        </ol>
         </div>
     </div>
-    <div class ="panel panel-info">
-        <div class="col-lg-12 panel-heading">
-        Twój kolor
-        </div>
-        <div class ="panel-body">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-4 info-color <?php GroupColor();?>">
-                <br>
-                <br>
-                <br>
-                <br>
-            </div>
-        </div>
-    </div>
-    
+   
     <div class="panel panel-info">
         <div class="panel-heading"> 
         Twoja kompania 

@@ -14,7 +14,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'color')->dropdownList(range(0,19),['prompt'=>'Wybierz numer koloru','value'=>'$this->$items'])?>
+    <?= $form->field($model, 'color')->dropdownList(['0'=>'Nieustalony',
+        '1'=>'Żółty','2'=>'Niebieski','3'=>'Zielony','4'=>'Czerwony','5'=>'Fioletowy',
+        '6'=>'Pomarańczowy','7'=>'Szary','8'=>'Różowy',
+        ])?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

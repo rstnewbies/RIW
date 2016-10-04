@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Siusiacz
 */
 
-.color-0{
+.color-1{
     background: #854798;
 }
 
@@ -17,7 +17,7 @@ and open the template in the editor.
 }
 
 .color-2{
-    background: #0000FF;
+    background: #0078ff;
 }
 
 .color-3{
@@ -25,18 +25,22 @@ and open the template in the editor.
 }
 
 .color-4{
-    background: #800080;
+    background: #FF0000;
 }
 
 .color-5{
-    background: #FFA500;
+    background: #800080;
 }
 
 .color-6{
-    background: #808080;
+    background: #FFA500;
 }
 
 .color-7{
+    background: #808080;
+}
+
+.color-8{
     background: #FFC0CB;
 }
 

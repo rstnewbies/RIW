@@ -23,7 +23,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'name',
-            'color',
+            [
+            'attribute' => 'color',
+            'enableSorting'=>true,
+            'format' => 'raw',
+            'header' => 'Color',
+            'value' => function($data) {
+            return $data->getColorName($data->color);
+            }
+            ],
             'score',
 
             ['class' => 'yii\grid\ActionColumn'],

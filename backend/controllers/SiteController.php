@@ -96,4 +96,7 @@ class SiteController extends Controller
         return $this->goHome();
     }
    
+    public function actionSendEmail(){
+        $users = \common\models\User::find()->all();
+    }
 }

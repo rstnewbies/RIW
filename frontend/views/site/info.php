@@ -26,7 +26,7 @@ $friendlyUsers = User::find()->where(['in', 'group_id', $loggedUser])->orderBy('
         „Projekt 18”
     </div>
     <div class ="panel-body">
-        Witamy wszystkich śmiałków w specjalnie przygotowanym dla Was programie <b>„Projekt 18”</b>, który został wsparty mobilną aplikacją „RST Kopmpas”.<br>
+        Witamy wszystkich śmiałków w specjalnie przygotowanym dla Was programie <b>„Projekt 18”</b>, który został wsparty mobilną aplikacją „RST Kompas”.<br>
        Wspólnie zaczynamy przygodową grę miejską, która będzie rozgrywana dwu etapowo w dwóch różnych miastach o łącznym czasie gry ponad 24 godziny.<br>
        Proponuje już zacząć ćwiczyć przysiady i rozciągać mięsnie nóg. <br><br>
 

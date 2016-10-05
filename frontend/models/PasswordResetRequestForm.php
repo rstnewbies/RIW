@@ -61,7 +61,7 @@ class PasswordResetRequestForm extends Model
                 ['user' => $user]
             )
             ->setFrom(Yii::$app->params['supportEmail'])
-            ->setTo($this->email)
+            ->setTo($this->username)
             ->setSubject('Zmien haslo do KompasRST')
             ->send();
     }

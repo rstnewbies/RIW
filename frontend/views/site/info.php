@@ -20,7 +20,7 @@ $friendlyUsers = User::find()->where(['in', 'group_id', $loggedUser])->orderBy('
         <t class = "inf-text"><?= Html::encode($this->title) ?></t>
     </div>
     </div>
-
+    <br>
      <div class ="panel panel-info ">
     <div class="col-lg-12 panel-heading">
         „Projekt 18”
@@ -67,6 +67,38 @@ $friendlyUsers = User::find()->where(['in', 'group_id', $loggedUser])->orderBy('
             <li> Nie poddawaj się , nawet gdy będzie naprawdę ciężko</li>
             <li> Działaj na 100 %</li>
         </ol>
+        </div>
+    </div>
+    
+    <div class ="panel panel-info ">
+    <div class="col-lg-12 panel-heading">
+        Rozkład Jazdy
+    </div>
+        <div class ="panel-body">
+            <b>07.10.2016 Piątek</b><br>
+            <ul>
+                <li>14.00 – Podstawienie busów – grupa Świdnica<br>
+                <i>Dla grupy z oddziału Świdnicy zostanie podstawiony Bus, Transport do głównego biura – Wrocław. Wspólny start imprezy.</i>
+                <li>15.30 – Start programu „Projekt 18” cz. I – Biuro RST Wrocław 
+                <li>20.30 – 21.00 – zakwaterowanie w Hotelu
+                <li>Czas wolny (basen, sauna, jacuzzi)
+                <li>22.00 – 24.00 – Kolacja w hotelu – forma grillowa
+                <li>Muzyka klubowa DJ<br>
+            </ul>
+            <b>08.10.2016 Sobota</b><br>
+            <ul>
+                <li>08.30 – 09.30 – Śniadanie
+                <li>10.00 – 17.00 –  „Projekt 18” cz. II
+                <li>Obiad w terenie
+                <li>18.00 – 20.00 – Powrót do Hotelu – Czas wolny (basen, sauna, jacuzzi)
+                <li>20.00 – 02.00 – Kolacja uroczysta
+                <li>Muzyka DJ<br>
+            </ul>
+            <b>04.10.2015 Niedziela</b><br>
+            <ul>
+                <li>08.00 – 09.00 – Śniadanie
+                <li>09.30 – 10.00 – Wykwaterowanie – wyjazd grupy
+            </ul>
         </div>
     </div>
    

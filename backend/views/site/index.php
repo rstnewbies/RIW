@@ -65,7 +65,7 @@ $this->title = 'My Yii Application';
                  <?php echo Html::a("Wykonane Zadania", ["complete-task/index"],['class'=>'btn btn-lg btn-warning dashboard-btn']); ?>  
             </div>
             <div class="col-lg-4 dashboard-div-btn">
-                 <?php echo Html::a("Wyślij Emaile", ["site/sendEmail"],['class'=>'btn btn-lg btn-danger dashboard-btn']); ?>  
+                 <?php echo Html::a("Wyślij Emaile", ["site/email"],['class'=>'btn btn-lg btn-danger dashboard-btn']); ?>  
             </div>
     </div>
 </div>

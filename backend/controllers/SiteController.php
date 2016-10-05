@@ -26,7 +26,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index','email'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -96,7 +96,19 @@ class SiteController extends Controller
         return $this->goHome();
     }
    
-    public function actionSendEmail(){
+    public function actionEmail(){
         $users = \common\models\User::find()->all();
+        foreach ($users as $user){
+            Yii::$app->mailer->compose(
+                ['html' => 'invite', 'text' => 'passwordResetToken-text'],
+                ['user' => $user]
+            )
+            ->setFrom(Yii::$app->params['supportEmail'])
+            ->setTo($user->email)
+            ->setSubject('Witamy w KompasRST.')
+            ->send();
+        }
+        
+        return $this->render('email');
     }
 }

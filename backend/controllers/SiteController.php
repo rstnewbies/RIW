@@ -26,7 +26,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index','email'],
+                        'actions' => ['logout', 'index','email','token'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -104,11 +104,20 @@ class SiteController extends Controller
                 ['user' => $user]
             )
             ->setFrom(Yii::$app->params['supportEmail'])
-            ->setTo($user->email)
+            ->setTo($user->username)
             ->setSubject('Witamy w KompasRST.')
             ->send();
         }
         
         return $this->render('email');
+    }
+    
+    public function actionToken(){
+        $users = \common\models\User::find()->all();
+        foreach ($users as $user){
+            $user->generatePasswordResetToken();
+            $user->save();   
+        }
+        return $this->render('token');
     }
 }

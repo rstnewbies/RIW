@@ -9,6 +9,25 @@ use yii\helpers\Html;
 
 class CodeController extends \yii\web\Controller
 {
+	  public function behaviors()
+    {
+        return [
+			'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'allow' => false,
+                        'roles' => ['?'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
     public function actionIndex()
     {
         return $this->render('index');   

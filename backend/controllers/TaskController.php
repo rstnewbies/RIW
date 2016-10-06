@@ -18,11 +18,25 @@ class TaskController extends Controller
     /**
      * @inheritdoc
      */
-    
+
+
     
     public function behaviors()
     {
         return [
+			 'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'allow' => false,
+                        'roles' => ['?'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

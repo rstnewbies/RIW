@@ -67,8 +67,8 @@ $this->title = 'My Yii Application';
             <div class="col-lg-4 dashboard-div-btn">
                  <?php echo Html::a("Wyślij Emaile", ["site/email"],['class'=>'btn btn-lg btn-danger dashboard-btn']); ?>  
             </div>
-            <div class="col-lg-4 dashboard-div-btn">
+<!--            <div class="col-lg-4 dashboard-div-btn">
                  <?php echo Html::a("NIE KLIKAĆ", ["site/token"],['class'=>'btn btn-lg btn-danger dashboard-btn']); ?>  
-            </div>
+            </div>-->
     </div>
 </div>

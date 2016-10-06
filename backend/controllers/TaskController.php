@@ -24,7 +24,7 @@ class TaskController extends Controller
     public function behaviors()
     {
         return [
-			  'access' => [
+			'access' => [
                 'class' => \yii\filters\AccessControl::className(),
                 'rules' => [
                     [

@@ -5,6 +5,25 @@ use common\models\ShowImage;
 
 class ShowImageController extends \yii\web\Controller
 {
+	public function behaviors()
+    {
+        return [
+			'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'allow' => false,
+                        'roles' => ['?'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
     public function actionIndex()
     {   
         $show = new ShowImage();

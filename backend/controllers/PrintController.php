@@ -10,6 +10,25 @@ use yii\data\ActiveDataProvider;
 
 class PrintController extends Controller
 {
+	public function behaviors()
+    {
+        return [
+			'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                    [
+                        'allow' => false,
+                        'roles' => ['?'],
+                    ],
+                ],
+            ],
+        ];
+    }
+
    public function actionIndex()
     {   
        
